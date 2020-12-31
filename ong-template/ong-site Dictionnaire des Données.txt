@@ -1,0 +1,405 @@
+Dictionnaire de données 
+
+Nom : id
+Code : ID
+Type : AUTO_INCREMENT
+Taille : 11,
+Commentaire : 
+
+Nom : title
+Code : TITLE
+Type : VARCHAR
+Taille : 11,
+Commentaire : 
+
+Nom : content
+Code : CONTENT
+Type : TINYTEXT
+Taille : ,
+Commentaire : contenu ou texte pour décrire
+
+Nom : slug
+Code : SLUG
+Type : VARCHAR
+Taille : 255,
+Commentaire : slug : indique le lien ou l'URL (format ici : title_formaté_id) servant à accéder fiablement aux différentes ressources du site
+
+Nom : image
+Code : IMAGE
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : created_at
+Code : CREATED_AT
+Type : DATETIME
+Taille : ,
+Commentaire : 
+
+Nom : is_online
+Code : IS_ONLINE
+Type : TINYINT
+Taille : ,
+Commentaire : 0 si inactif ou à ne pas mettre en ligne
+1 si activé ou mis en ligne
+
+Nom : content
+Code : CONTENT
+Type : MEDIUMTEXT
+Taille : ,
+Commentaire : 
+
+Nom : is_online
+Code : IS_ONLINE
+Type : TINYTEXT
+Taille : ,
+Commentaire : 
+
+Nom : name
+Code : NAME
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : sigle
+Code : SIGLE
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : logo
+Code : LOGO
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : siteweb
+Code : SITEWEB
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : facebook
+Code : FACEBOOK
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : twitter
+Code : TWITTER
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : email
+Code : EMAIL
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : linkedin
+Code : LINKEDIN
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : contact
+Code : CONTACT
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : whatsapp
+Code : WHATSAPP
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : identitee
+Code : IDENTITE
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : montant
+Code : MONTANT
+Type : INT
+Taille : 11,
+Commentaire : 
+
+Nom : fonction
+Code : FONCTION
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : nationalite_id
+Code : NATIONALITE_ID
+Type : INT
+Taille : 11,
+Commentaire : identifiant de la table étrangère "nationalite" listant les noms des pays du monde
+
+Nom : nom
+Code : NOM
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : prenoms
+Code : PRENOMS
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : profession
+Code : PROFESSION
+Type : VARCHAR
+Taille : 255,
+Commentaire : fonction occupée dans la vie courante (ménagère, chômeur, policier, médecin, ....)
+
+Nom : date_naissance
+Code : DATE_NAISSANCE
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : lieu_naissance
+Code : LIEU_NAISSANCE
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : photo
+Code : PHOTO
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : cv
+Code : CV
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : facebook_page
+Code : FACEBOOK_PAGE
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : telegram
+Code : TELEGRAM
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : pseudo
+Code : PSEUDO
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : password
+Code : IMAGE
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : updated_at
+Code : UPDATED_AT
+Type : DATETIME
+Taille : ,
+Commentaire : 
+
+Nom : token_validating
+Code : TOKEN_VALIDATING
+Type : VARCHAR
+Taille : 255,
+Commentaire : token pour savoir si le compte a été activé ou nom
+
+si NULL compte inactivé ou non confirmé
+sinon compte actif ou validé ou confirmé
+
+Nom : role
+Code : ROLE
+Type : VARCHAR
+Taille : 255,
+Commentaire : énumération pour lister les différents rôles pour l'administration du site
+dont : 
+- administrator : gère ou administre le site et les utilisateurs
+- moderator : fait la rédaction des articles (droits plus restreints par rapport à l'admin)
+- adherent : utilise l'application
+- superadmin : rôle plus étendu par rapport à l'admin
+
+Nom : code
+Code : CODE
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : alpha2
+Code : ALPHA2
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : alpha3
+Code : ALPHA3
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : nom_en_gb
+Code : NOM_EN_GB
+Type : VARCHAR
+Taille : 5,
+Commentaire : 
+
+Nom : nom_fr_fr
+Code : NOM_FR_FR
+Type : VARCHAR
+Taille : 255,
+Commentaire : 
+
+Nom : is_flash
+Code : IS_FLASH
+Type : TINYINT
+Taille : 1,
+Commentaire : si 0 ce n'est pas un flash sinon c'en est un.
+Un flash est une annonce, le genre d'actualité qui défile en haut ou dans le TOP-BAR
+
+Nom : date_debut
+Code : DATE_DEBUT
+Type : DATETIME
+Taille : ,
+Commentaire : date de début de l'event
+
+Nom : date_fin
+Code : DATE_FIN
+Type : DATETIME
+Taille : ,
+Commentaire : date de fin de l'event
+
+Nom : est_annule
+Code : EST_ANNULE
+Type : TINYINT
+Taille : 1,
+Commentaire : 
+
+Nom : est_urgent
+Code : EST_URGENT
+Type : TINYINT
+Taille : 1,
+Commentaire : si urgent, type particulier d'affichage
+
+Nom : has_priority
+Code : HAS_PRIORITY
+Type : INT
+Taille : 5,
+Commentaire : le rang d'affichage d'une publicité. Indique si la pub X passe avant la pub Y et ainsi de suite
+
+Nom : is_presse
+Code : IS_PRESSE
+Type : TINYINT
+Taille : 1,
+Commentaire : indique s'il s'agit d'un article de presse. Pour l'item "La presse en parle" ou "Nous dans la presse" ou autre du menu du site
+
+Voir le menu du site pour comprendre
+
+Nom : is_rapport
+Code : IS_RAPPORT
+Type : TINYINT
+Taille : 1,
+Commentaire : indique s'il s'agit d'un rapport. Les rapports sont obligatoires pour une association. C'est un genre d'actualité ou de communiqué.
+
+Doit être exportable en DOCX, PDF, ou autres formats de texte du côté de PHP ou JAVA
+
+Nom : details
+Code : DETAILS
+Type : TEXT
+Taille : ,
+Commentaire : contenu ou texte descriptif
+
+Nom : contrat_enum
+Code : CONTRAT_ENUM
+Type : TINYINT
+Taille : ,
+Commentaire : type "enum" de MYSQL  ou mettre dans une table séparée
+
+CDI
+CDIC
+Contrat de travail intermittent
+Contrat de chantier
+Contrat de travail intermittent
+CDI : contrat à durée indéterminée
+CDD
+Contrat vendanges
+Options à la fin d'un contrat de professionnalisation
+Comment bien planter une orchidée ?
+Contrat d’extra
+Contrat de professionnalisation pour les plus de 26 ans
+Délai de carence
+Travail saisonnier
+Prime de précarité
+Succession de CDD
+Contrat CDDI
+CDD objet défini
+CDD
+Accroissement temporaire d'activité
+CDD de remplacement en cascade
+Contrat d'apprentissage
+Différences entre contrat de professionnalisation et apprentissage
+Renouvellement CDD
+Contrat d'accès à l'entreprise
+Contrat de professionnalisation
+Recours au CDD d'usage : qui est concerné ?
+CDD saisonnier
+Contrat de travail à temps partiel
+CDD à temps partiel
+Heures complémentaires
+Contrat de travail à temps partiel
+Pour ou contre le temps partiel ?
+Temps partiel de droit
+
+Nom : categorie_enum
+Code : CATEGORIE_ENUM
+Type : TINYINT
+Taille : ,
+Commentaire : categorie telle que : Job, emploi, gombo, Recrutement, stages, test, etc...
+
+Nom : label
+Code : LABEL
+Type : VARCHAR
+Taille : 11,
+Commentaire : 
+
+Nom : content
+Code : CONTENT
+Type : TEXT
+Taille : ,
+Commentaire : contenu ou texte pour décrire
+
+Nom : chiffre
+Code : CHIFFRE
+Type : INT
+Taille : 11,
+Commentaire : 
+
+Nom : nom_prenom
+Code : NOM
+Type : VARCHAR
+Taille : 255,
+Commentaire : nom du membre qui doit faire un mot
+
+Nom : civilite
+Code : CIVILITE
+Type : VARCHAR
+Taille : 255,
+Commentaire : peut être : mot du président, mot du directeur, mot du SG, etc...
+
+Nom : portrait
+Code : PORTRAIT
+Type : TEXT
+Taille : ,
+Commentaire : texte descriptif du membre
+

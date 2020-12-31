@@ -1,0 +1,107 @@
+/**
+* Template Name: coloradi - v1.0.0
+* Author: Adi Alloh Agency - 3A
+* License: MIT
+*/
+
+/*--------------------------------------------------------------
+# Palette ou plage de couleurs : https://imagecolorpicker.com/
+--------------------------------------------------------------*/
+
+/*      couleurs dominantes du logo
+
+-------   ocre-pur  -------
+HTML/HEX code:	#8a1610	
+RGB code:	rgb(138, 22, 16)	
+Hsl code:	hsl(3, 79%, 30%)	
+Hwb code:	hwb(3, 6%, 46%)	
+Cmyk code:	cmyk(0%, 84%, 88%, 46%)	
+Ncol code:	R5, 6%, 46%
+
+-------   ocre1  -------
+HTML/HEX code:	#811a1f	
+RGB code:	rgb(129, 26, 31)	
+Hsl code:	hsl(357, 66%, 30%)	
+Hwb code:	hwb(357, 10%, 49%)	
+Cmyk code:	cmyk(0%, 80%, 76%, 49%)	
+Ncol code:	M95, 10%, 49%
+
+-------   brun  -------
+HTML/HEX code:	#b06d4a	
+RGB code:	rgb(176, 109, 74)	
+Hsl code:	hsl(21, 41%, 49%)	
+Hwb code:	hwb(21, 29%, 31%)	
+Cmyk code:	cmyk(0%, 38%, 58%, 31%)	
+Ncol code:	R34, 29%, 31%
+
+-------   or  -------
+HTML/HEX code:	#c9bf50	
+RGB code:	rgb(201, 191, 80)	
+Hsl code:	hsl(55, 53%, 55%)	
+Hwb code:	hwb(55, 31%, 21%)	
+Cmyk code:	cmyk(0%, 5%, 60%, 21%)	
+Ncol code:	R92, 31%, 21%
+
+-------   violet1  -------
+HTML/HEX code:	#521b49	
+RGB code:	rgb(82, 27, 73)	
+Hsl code:	hsl(310, 50%, 21%)	
+Hwb code:	hwb(310, 11%, 68%)	
+Cmyk code:	cmyk(0%, 67%, 11%, 68%)	
+Ncol code:	M16, 11%, 68%	
+
+-------   violet2  -------
+HTML/HEX code:	#774d72	
+RGB code:	rgb(119, 77, 114)	
+Hsl code:	hsl(307, 21%, 38%)	
+Hwb code:	hwb(307, 30%, 53%)	
+Cmyk code:	cmyk(0%, 35%, 4%, 53%)	
+Ncol code:	M12, 30%, 53%
+
+-------   violet3  -------
+HTML/HEX code:	#6a3a64	
+RGB code:	rgb(106, 58, 100)	
+Hsl code:	hsl(308, 29%, 32%)	
+Hwb code:	hwb(308, 23%, 58%)	
+Cmyk code:	cmyk(0%, 45%, 6%, 58%)	
+Ncol code:	M13, 23%, 58%
+
+-------   violet4  -------
+HTML/HEX code:	#a78ba2	
+RGB code:	rgb(167, 139, 162)	
+Hsl code:	hsl(311, 14%, 60%)	
+Hwb code:	hwb(311, 55%, 35%)	
+Cmyk code:	cmyk(0%, 17%, 3%, 35%)	
+Ncol code:	M18, 55%, 35%
+
+-------   violet1  -------
+
+
+-------   violet1  -------
+
+-------   violet1  -------
+
+
+*/
+
+.ocre{
+    color: #8a1610;
+}
+.ocre1{
+    color: #811a1f;
+}
+.brun{
+    color: #b06d4a;
+}
+.or{
+    color: #c9bf50;
+}
+.violet{
+    color: #521b49;
+}
+.violet1{
+    color: #774d72;
+}
+.violet2{
+    color: #6a3a64;
+}

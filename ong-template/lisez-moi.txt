@@ -1,0 +1,6 @@
+Pour voir le MCD et les modifications apportées à la base de données en vue de simplifier les choses,
+se servir de JMERISE version ETUDIANTE présente dans ce dossier au nom de "JMériseEtudiant".
+
+Lire également le dictionnaire des données pour comprendre les tables ou entités cas des commentaires 
+accompagnent les entités.
+
