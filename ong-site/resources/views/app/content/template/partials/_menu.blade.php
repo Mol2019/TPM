@@ -39,7 +39,15 @@
     </a>
 </li>
 
-
+<li class="nav-item">
+    <a href="{{ route('partenaires.index') }}" class="nav-link">
+        <i class="fa big-icon fa-book"></i>
+        <span class="mini-dn">Slides</span>
+        <span class="indicator-right-menu mini-dn">
+            <i class="fa indicator-mn fa-angle-left"></i>
+        </span>
+    </a>
+</li>
 
 
 

@@ -69,6 +69,19 @@ Route::group(['middleware' => "auth"],function(){
                   ->name('sliders.delete');
     });
 
+    Route::group(["prefix" => "acteurs"],function(){
+      Route::get('/',[App\Http\Controllers\ActeursController::class, 'index'])
+                ->name('acteurs.index');
+      Route::post('/create',[App\Http\Controllers\ActeursController::class, 'create'])
+                ->name('acteurs.create');
+      Route::post('/update',[App\Http\Controllers\ActeursController::class, 'update'])
+                ->name('acteurs.update');
+      Route::get('/edit/{id}',[App\Http\Controllers\ActeursController::class, 'edit'])
+                ->name('acteurs.edit');
+      Route::get('/delete/{id}',[App\Http\Controllers\ActeursController::class, 'delete'])
+                ->name('acteurs.delete');
+  });
+
 });
 
 Auth::routes();
