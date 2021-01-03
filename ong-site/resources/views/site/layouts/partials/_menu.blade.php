@@ -5,7 +5,7 @@
 
           <li class="drop-down"><a href="#">&Agrave; propos</a>
             <ul>
-              <li><a href="about.html">Mot du Président</a></li>
+              <li><a href="#mp">Mot du Président</a></li>
               <!-- <li><a href="team.html">Team</a></li> -->
 
               <li class="drop-down"><a href="#">Présentation</a>
@@ -16,6 +16,7 @@
                   <li><a href="#">Notre histoire</a></li>
                 </ul>
               </li>
+
 
               <li class="drop-down"><a href="#">Organisation</a>
                 <ul>
@@ -103,11 +104,7 @@
             </ul>
           </li>
 
-          <!-- <li><a href="services.html">Services</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="blog.html">Blog</a></li> -->
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="{{ route('contact') }}">Contact</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->

@@ -1,17 +1,16 @@
 <?php
 
 namespace App\Gestion;
-use App\Models\Actualite;
+use App\Models\Donateur;
 use App\Gestion\TreatmentGestion;
 
-class ActualitesGestion extends TreatmentGestion
+class DonateursGestion extends TreatmentGestion
 {
   public function __construct()
   {
-  $this->model = new Actualite;
+  $this->model = new Donateur;
     $this->rules = [
-      "title" => "required|min:2",
-      "content" => "required",
+      "nom" => "required|min:2",
     ];
   }
 

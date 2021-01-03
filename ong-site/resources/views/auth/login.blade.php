@@ -26,7 +26,7 @@
 
 @section('content')
 <div class="limiter">
-    <div class="container-login100" style="background-image: url('assets/public/img/logo.jpeg');">
+    <div class="container-login100 bg-light">
         <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
             <form method="POST" action="{{route('login')}}" class="login100-form">
                 @csrf

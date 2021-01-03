@@ -9,22 +9,14 @@
           <div class="ticker-wrap">
             <div class="d-flex justify-content-between align-items-center breaking-news">
               <div class="d-flex flex-row flex-grow-1 flex-fill justify-content-center bg-danger
-              px-1 news"><span class="d-flex align-items-center">&nbsp;Flash</span> <!-- <i class="icofont-info-circle"></i> --></div>
+              px-1 news"><span class="d-flex align-items-center">&nbsp;Flash</span> </div>
 
               <marquee class="news-scroll" behavior="scroll" direction="left" onmouseover="this.stop();"
               onmouseout="this.start();">
 
-              <a href="#">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-              officia deserunt mollit anim id est laborum. </a>
-
-              <span class="dot"></span>
-
-              <a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut </a>
-
-              <span class="dot"></span>
-
-              <a href="#">Duis aute irure dolor in reprehenderit in voluptate velit esse </a>
+                  @foreach ($data->flashs as $flash)
+                    <a href="#"> {{$flash->content}} </a>   
+                  @endforeach
 
               </marquee>
 
@@ -45,10 +37,10 @@
   <header id="header">
     <div class="container d-flex justify-content-between">
 
-      <div class="logo">
-        <h1 class="text-light"><a href="index.html"><span>Eterna</span></a></h1>
+       <div class="logo">
+        <!-- <h1 class="text-light"><a href="index.html"><span>Eterna</span></a></h1> -->
         <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        <a href="{{route('acc')}}"><img src="{{asset('assets/site/img/logo.png')}}" alt="" class="img-fluid"></a>
       </div>
       @include('site.layouts.partials._menu')
     </div>

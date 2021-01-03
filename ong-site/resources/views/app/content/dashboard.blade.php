@@ -8,7 +8,7 @@
                 <div class="income-dashone-total shadow-reset nt-mg-b-30">
                     <div class="income-title">
                         <div class="main-income-head">
-                            <h2>Type de document</h2>
+                            <h2>Membres</h2>
                         </div>
                     </div>
                     <div class="income-dashone-pro">
@@ -16,7 +16,7 @@
                             <div class="price-adminpro-rate">
                                 <h3>
                                     <span class="counter">
-                                        {{ $data->documents_count }}
+                                        {{ $data->membres }}
                                     </span>
                                 </h3>
                             </div>
@@ -33,7 +33,7 @@
                 <div class="income-dashone-total shadow-reset nt-mg-b-30">
                     <div class="income-title">
                         <div class="main-income-head">
-                            <h2>Services</h2>
+                            <h2>Partenaires</h2>
                         </div>
                     </div>
                     <div class="income-dashone-pro">
@@ -41,7 +41,7 @@
                             <div class="price-adminpro-rate">
                                 <h3>
                                     <span class="counter">
-                                        {{ $data->services_count }}
+                                        {{ $data->partenaires }}
                                     </span>
                                 </h3>
                             </div>
@@ -57,7 +57,7 @@
                 <div class="income-dashone-total shadow-reset nt-mg-b-30">
                     <div class="income-title">
                         <div class="main-income-head">
-                            <h2>Types</h2>
+                            <h2>Donateurs</h2>
                         </div>
                     </div>
                     <div class="income-dashone-pro">
@@ -65,7 +65,7 @@
                             <div class="price-adminpro-rate">
                                 <h3>
                                     <span class="counter">
-                                        {{ $data->types_count }}
+                                        {{ $data->donateurs }}
                                     </span>
                                 </h3>
                             </div>
@@ -83,7 +83,7 @@
                 <div class="income-dashone-total shadow-reset nt-mg-b-30">
                     <div class="income-title">
                         <div class="main-income-head">
-                            <h2>Les archives</h2>
+                            <h2>Evenements</h2>
                         </div>
                     </div>
                     <div class="income-dashone-pro">
@@ -91,7 +91,7 @@
                             <div class="price-adminpro-rate">
                                 <h3>
                                     <span class="counter">
-                                        {{ $data->archives_count }}
+                                        {{ $data->evenements }}
                                     </span>
                                 </h3>
                             </div>

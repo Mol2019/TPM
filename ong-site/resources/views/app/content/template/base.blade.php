@@ -110,13 +110,13 @@
                     create_action.action = 'create';
                     create_action.route = actionData.name+"."+create_action.action;
                     create_action.chemin = "/"+actionData.name+"/"+create_action.action;
-                    createFunction(create_action);
+                    createFunction(create_action,this);
                 }else if($(e.target[e.target.length-1]).text() == "modifier"){
                     let create_action = actionData;
                     create_action.action = 'update';
                     create_action.route = actionData.name+"."+create_action.action;
                     create_action.chemin = "/"+actionData.name+"/"+create_action.action;
-                    createFunction(create_action);
+                    createFunction(create_action,this);
                 }
 
             })
@@ -145,12 +145,15 @@
 
 
 
-        function createFunction(data){
-            let routeTest = data.route;
+        function createFunction(data,formElement){
+            let elementForm = new FormData(formElement) ;
+            console.log(formElement)
             $.ajax({
                 url : data.chemin,
                 type : "POST",
-                data : $("#add-form").serialize(),
+                data : elementForm,
+                processData : false,
+                contentType : false,
                 success : function(data){
                     treatment(data);
                 }

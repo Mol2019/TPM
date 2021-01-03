@@ -4,7 +4,7 @@
             <a href="#"><img src="{{ asset('assets/back-office/img/message/1.jpg') }}" alt="" />
             </a>
             
-            <strong>2M+</strong>
+            <strong>SFJ</strong>
         </div>
         <div class="left-custom-menu-adp-wrap">
             <ul class="nav navbar-nav left-sidebar-menu-pro">

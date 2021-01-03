@@ -13,11 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get("/",[App\Http\Controllers\HomeController::class, 'index'])->name('acc');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'archiever'])->name('home');
 
-Route::group(['middleware' => "auth"],function(){
-  Route::group(["prefix" => "menus"],function(){
+
+Route::get('/contact',function(){
+    return view('site.contact');
+})->name('contact');
+
+
+Route::group(["namespace" => "App\Http\Controllers\Site"],function(){
+    Route::get("/",[App\Http\Controllers\HomeController::class, 'index'])->name('acc');
+});
+
+
+Route::group(['middleware' => "auth","namespace" => "App\Http\Controllers\Back"],function(){
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('home');
+
+    Route::group(["prefix" => "menus"],function(){
     Route::get('/',[App\Http\Controllers\MenusController::class, 'index'])
               ->name('menus.index');
     Route::post('/create',[App\Http\Controllers\MenusController::class, 'create'])
@@ -82,6 +93,160 @@ Route::group(['middleware' => "auth"],function(){
                 ->name('acteurs.delete');
   });
 
+  Route::group(["prefix" => "agendas"],function(){
+        Route::get('/',[App\Http\Controllers\AgendasController::class, 'index'])
+                ->name('agendas.index');
+        Route::post('/create',[App\Http\Controllers\AgendasController::class, 'create'])
+                ->name('agendas.create');
+        Route::post('/update',[App\Http\Controllers\AgendasController::class, 'update'])
+                ->name('agendas.update');
+        Route::get('/edit/{id}',[App\Http\Controllers\AgendasController::class, 'edit'])
+                ->name('agendas.edit');
+        Route::get('/delete/{id}',[App\Http\Controllers\AgendasController::class, 'delete'])
+                ->name('agendas.delete');
+    });
+    Route::group(["prefix" => "programmes"],function(){
+      Route::get('/',[App\Http\Controllers\ProgrammesController::class, 'index'])
+                ->name('programmes.index');
+      Route::post('/create',[App\Http\Controllers\ProgrammesController::class, 'create'])
+                ->name('programmes.create');
+      Route::post('/update',[App\Http\Controllers\ProgrammesController::class, 'update'])
+                ->name('programmes.update');
+      Route::get('/edit/{id}',[App\Http\Controllers\ProgrammesController::class, 'edit'])
+                ->name('programmes.edit');
+      Route::get('/delete/{id}',[App\Http\Controllers\ProgrammesController::class, 'delete'])
+                ->name('programmes.delete');
+  });
+
+  Route::group(["prefix" => "galeries"],function(){
+        Route::get('/',[App\Http\Controllers\GaleriesController::class, 'index'])
+                ->name('galeries.index');
+        Route::post('/create',[App\Http\Controllers\GaleriesController::class, 'create'])
+                ->name('galeries.create');
+        Route::post('/update',[App\Http\Controllers\GaleriesController::class, 'update'])
+                ->name('galeries.update');
+        Route::get('/edit/{id}',[App\Http\Controllers\GaleriesController::class, 'edit'])
+                ->name('galeries.edit');
+        Route::get('/delete/{id}',[App\Http\Controllers\GaleriesController::class, 'delete'])
+                ->name('galeries.delete');
+    });
+
+    Route::group(["prefix" => "donateurs"],function(){
+        Route::get('/',[App\Http\Controllers\DonateursController::class, 'index'])
+                  ->name('donateurs.index');
+        Route::post('/create',[App\Http\Controllers\DonateursController::class, 'create'])
+                  ->name('donateurs.create');
+        Route::post('/update',[App\Http\Controllers\DonateursController::class, 'update'])
+                  ->name('donateurs.update');
+        Route::get('/edit/{id}',[App\Http\Controllers\DonateursController::class, 'edit'])
+                  ->name('donateurs.edit');
+        Route::get('/delete/{id}',[App\Http\Controllers\DonateursController::class, 'delete'])
+                  ->name('donateurs.delete');
+    });
+
+    Route::group(["prefix" => "membres"],function(){
+        Route::get('/',[App\Http\Controllers\MembresController::class, 'index'])
+                  ->name('membres.index');
+        Route::post('/create',[App\Http\Controllers\MembresController::class, 'create'])
+                  ->name('membres.create');
+        Route::post('/update',[App\Http\Controllers\MembresController::class, 'update'])
+                  ->name('membres.update');
+        Route::get('/edit/{id}',[App\Http\Controllers\MembresController::class, 'edit'])
+                  ->name('membres.edit');
+        Route::get('/delete/{id}',[App\Http\Controllers\MembresController::class, 'delete'])
+                  ->name('membres.delete');
+    });
+
+    Route::group(["prefix" => "publicites"],function(){
+        Route::get('/',[App\Http\Controllers\PublicitesController::class, 'index'])
+                  ->name('publicites.index');
+        Route::post('/create',[App\Http\Controllers\PublicitesController::class, 'create'])
+                  ->name('publicites.create');
+        Route::post('/update',[App\Http\Controllers\PublicitesController::class, 'update'])
+                  ->name('publicites.update');
+        Route::get('/edit/{id}',[App\Http\Controllers\PublicitesController::class, 'edit'])
+                  ->name('publicites.edit');
+        Route::get('/delete/{id}',[App\Http\Controllers\PublicitesController::class, 'delete'])
+                  ->name('publicites.delete');
+    });
+
+    Route::group(["prefix" => "publications"],function(){
+        Route::get('/',[App\Http\Controllers\PublicationsController::class, 'index'])
+                  ->name('publications.index');
+        Route::post('/create',[App\Http\Controllers\PublicationsController::class, 'create'])
+                  ->name('publications.create');
+        Route::post('/update',[App\Http\Controllers\PublicationsController::class, 'update'])
+                  ->name('publications.update');
+        Route::get('/edit/{id}',[App\Http\Controllers\PublicationsController::class, 'edit'])
+                  ->name('publications.edit');
+        Route::get('/delete/{id}',[App\Http\Controllers\PublicationsController::class, 'delete'])
+                  ->name('publications.delete');
+    });
+
+    Route::group(["prefix" => "equipes"],function(){
+        Route::get('/',[App\Http\Controllers\EquipesController::class, 'index'])
+                  ->name('equipes.index');
+        Route::post('/create',[App\Http\Controllers\EquipesController::class, 'create'])
+                  ->name('equipes.create');
+        Route::post('/update',[App\Http\Controllers\EquipesController::class, 'update'])
+                  ->name('equipes.update');
+        Route::get('/edit/{id}',[App\Http\Controllers\EquipesController::class, 'edit'])
+                  ->name('equipes.edit');
+        Route::get('/delete/{id}',[App\Http\Controllers\EquipesController::class, 'delete'])
+                  ->name('equipes.delete');
+    });
+
+    Route::group(["prefix" => "contrats"],function(){
+        Route::get('/',[App\Http\Controllers\ContratsController::class, 'index'])
+                  ->name('contrats.index');
+        Route::post('/create',[App\Http\Controllers\ContratsController::class, 'create'])
+                  ->name('contrats.create');
+        Route::post('/update',[App\Http\Controllers\ContratsController::class, 'update'])
+                  ->name('contrats.update');
+        Route::get('/edit/{id}',[App\Http\Controllers\ContratsController::class, 'edit'])
+                  ->name('contrats.edit');
+        Route::get('/delete/{id}',[App\Http\Controllers\ContratsController::class, 'delete'])
+                  ->name('contrats.delete');
+    });
+
+    Route::group(["prefix" => "chiffres-cles"],function(){
+        Route::get('/',[App\Http\Controllers\ChiffresClesController::class, 'index'])
+                  ->name('chiffres-cles.index');
+        Route::post('/create',[App\Http\Controllers\ChiffresClesController::class, 'create'])
+                  ->name('chiffres-cles.create');
+        Route::post('/update',[App\Http\Controllers\ChiffresClesController::class, 'update'])
+                  ->name('chiffres-cles.update');
+        Route::get('/edit/{id}',[App\Http\Controllers\ChiffresClesController::class, 'edit'])
+                  ->name('chiffres-cles.edit');
+        Route::get('/delete/{id}',[App\Http\Controllers\ChiffresClesController::class, 'delete'])
+                  ->name('chiffres-cles.delete');
+    });
+
+    Route::group(["prefix" => "evenements"],function(){
+        Route::get('/',[App\Http\Controllers\EvenementsController::class, 'index'])
+                  ->name('evenements.index');
+        Route::post('/create',[App\Http\Controllers\EvenementsController::class, 'create'])
+                  ->name('evenements.create');
+        Route::post('/update',[App\Http\Controllers\EvenementsController::class, 'update'])
+                  ->name('evenements.update');
+        Route::get('/edit/{id}',[App\Http\Controllers\EvenementsController::class, 'edit'])
+                  ->name('evenements.edit');
+        Route::get('/delete/{id}',[App\Http\Controllers\EvenementsController::class, 'delete'])
+                  ->name('evenements.delete');
+    });
+
+    Route::group(["prefix" => "jobnews"],function(){
+        Route::get('/',[App\Http\Controllers\JobnewsController::class, 'index'])
+                  ->name('jobnews.index');
+        Route::post('/create',[App\Http\Controllers\JobnewsController::class, 'create'])
+                  ->name('jobnews.create');
+        Route::post('/update',[App\Http\Controllers\JobnewsController::class, 'update'])
+                  ->name('jobnews.update');
+        Route::get('/edit/{id}',[App\Http\Controllers\JobnewsController::class, 'edit'])
+                  ->name('jobnews.edit');
+        Route::get('/delete/{id}',[App\Http\Controllers\JobnewsController::class, 'delete'])
+                  ->name('jobnews.delete');
+    });
 });
 
 Auth::routes();

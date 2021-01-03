@@ -76,7 +76,7 @@ class BaseGestion implements BaseGestionInterface
    * @param $param-title and param-value for get single data
    * @return Collection of Model
    */
-  protected function getByParam($title,$value,$limit=NULL)
+  public function getByParam($title,$value,$limit=NULL)
   {
     $data = new Collection();
     if($limit):

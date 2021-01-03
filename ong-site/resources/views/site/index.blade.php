@@ -12,7 +12,7 @@
         <h2>Nous connaître</h2>
       </div>
       <div class="row">
-          @foreach ($data->menus as $menu)
+          @foreach ($data->donnees->menus as $menu)
               @if(!$menu->nom)
                 <div class="col-lg-4 mt-4 mt-lg-0">
                   <div class="icon-box">
@@ -68,9 +68,9 @@
           <h2>Actualités</h2>
         </div>
         <div class="row entries">
-            @if($data->actualites->count() > 0 )
+            @if($data->donnees->actualites->count() > 0 )
            
-            @foreach($data->actualites as $actuailite)
+            @foreach($data->donnees->actualites as $actuailite)
                 <article class="entry col-12 col-md-4 col-lg-4">
 
               <div class="entry-img">
@@ -84,7 +84,7 @@
               <div class="entry-meta">
                 <ul>
                   <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="blog-single.html">Actualités</a></li>
-                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="blog-single.html"><time datetime="{{$data->created_at}}">{{$data->created_at}}</time></a></li>
+                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="blog-single.html"><time datetime="{{$data->donnees->created_at}}">{{$data->donnees->created_at}}</time></a></li>
                 </ul>
               </div>
 
@@ -135,7 +135,7 @@
         </div>
 
         <div class="owl-carousel clients-carousel">
-          @foreach ($data->partenaires as $partenaire)
+          @foreach ($data->donnees->partenaires as $partenaire)
             <img src="{{asset($partenaire->image)}}" alt="">
           @endforeach
          <!-- <img src="assets/site/img/clients/client-1.png" alt="">
