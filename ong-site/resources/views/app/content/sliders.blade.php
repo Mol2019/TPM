@@ -32,11 +32,16 @@
                                 <tbody>
                                     @foreach($data as $slide)
                                         <tr>
-                                            <td>{{ $slide->nom }}</td>
-                                            <td>{{ $slide->access_key }}</td>
-                                            <td>{{ $slide->access_key }}</td>
-                                            <td>{{ $slide->access_key }}</td>
+                                            <td>{{ $slide->title }}</td>
+                                            <td>{{ $slide->content }}</td>
+                                            <td>{{ $slide->slug }}</td>
+                                            <td>{{ $slide->image }}</td>
                                             <td>
+                                                @if($slide->is_online)
+                                                     <button id="{{ $slide->id }}" name="online" class="action btn btn-warning" data-toggle="modal" data-target="#action">Mettre hors ligne</button>
+                                                @else
+                                                    <button id="{{ $slide->id }}" name="offline" class="action btn btn-success" data-toggle="modal" data-target="#action">Mettre en ligne</button>
+                                                @endif
                                                 <button id="{{ $slide->id }}" class="edit btn btn-info" data-toggle="modal" data-target="#form">Modifier</button>
                                                 <button id="{{ $slide->id }}" class="btn btn-danger delete" data-toggle="modal" data-target="#delete" href="#delete">Supprimer</button>
                                             </td>
@@ -78,9 +83,7 @@
                 <span class="text-danger" id="image-error"> </span>
             </div>
              <div class="form-group">
-                <label for="slug">Slug : </label>
-                <input name="slug" type="slug" id="slug" class="form-control"/>
-                <span class="text-danger" id="slug-error"> </span>
+                <input name="slug" type="hidden" id="slug" class="form-control"/>
             </div>
             <input name="hidden_id" id="hidden_id" class="form-control" type="hidden"/>
         </div>

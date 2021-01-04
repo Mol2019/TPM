@@ -70,21 +70,23 @@
         <div class="row entries">
             @if($data->donnees->actualites->count() > 0 )
            
-            @foreach($data->donnees->actualites as $actuailite)
+            @foreach($data->donnees->actualites as $actualite)
+
                 <article class="entry col-12 col-md-4 col-lg-4">
 
               <div class="entry-img">
-                <img src="{{asset('assets/site/img/blog-1.jpg')}}" alt="" class="img-fluid">
+                <img 
+                    src="{{asset($actualite->image ?? 'assets/site/img/blog-1.jpg')}}" alt="" class="img-fluid">
               </div>
 
               <h2 class="entry-title">
-                <a href="blog-single.html">{{$actualite->title}}</a>
+                <a href="#">{{$actualite->title}}</a>
               </h2>
 
               <div class="entry-meta">
                 <ul>
-                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="blog-single.html">Actualités</a></li>
-                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="blog-single.html"><time datetime="{{$data->donnees->created_at}}">{{$data->donnees->created_at}}</time></a></li>
+                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="#">Actualités</a></li>
+                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="#"><time datetime="{{$actualite->created_at}}">{{$actualite->created_at}}</time></a></li>
                 </ul>
               </div>
 
@@ -93,7 +95,7 @@
                   {{$actualite->content}}
                 </p>
                 <div class="read-more">
-                  <a href="blog-single.html">Read More</a>
+                  <a href="{{route('actualites.details',$actualite->slug)}}">Lire plus</a>
                 </div>
               </div>
 

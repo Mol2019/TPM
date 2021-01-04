@@ -4,6 +4,7 @@ namespace App\Gestion;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Validator;
 use App\Gestion\TransactionGestion;
+use File;
 
 class TreatmentGestion extends TransactionGestion
 {
@@ -17,12 +18,20 @@ class TreatmentGestion extends TransactionGestion
     return $this->getData("one",$id);
   }
 
-  public function create($data)
+  public function create($data,$file=NULL)
   {
     $errors = $this->checkRules($this->rules,$data);
     if(count($errors) > 0 ){
       return ["result" => false,"data" => $errors];
     }else{
+      if($file){
+        if($file->isValid()) :
+          File::makeDirectory("assets/site/images/$this->name", $mode = 0777, true, true);
+          $extension = $file->getClientOriginalExtension();
+          $data['image'] = "assets/site/images/$this->name/$data[title].".$extension;
+          $file->move("assets/site/images/$this->name", $data['image']);
+        endif;
+      }
       $this->createOrUpdate($data);
     }
     return ["result" => true,"data" => $data];

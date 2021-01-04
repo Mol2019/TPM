@@ -18,7 +18,6 @@
                     </div>
                     <div class="sparkline13-graph">
                         <div class="datatable-dashv1-list custom-datatable-overright">
-
                             <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar">
                                 <thead>
                                     <tr>
@@ -48,12 +47,12 @@
 
                                             <td>
                                                 @if(!$actualite->is_flash)
-                                                    <button id="{{ $actualite->id }}" name="flash" class="flash btn btn-warning" data-toggle="modal" data-target="#action">Mettre en flash</button>
+                                                    <button id="{{ $actualite->id }}" name="flash" class="action btn btn-warning" data-toggle="modal" data-target="#action">Mettre en flash</button>
                                                 @else
-                                                    <button id="{{ $actualite->id }}" name="not-flash" class="flash btn btn-success" data-toggle="modal" data-target="#action">Enlever en flash</button>
+                                                    <button id="{{ $actualite->id }}" name="flash" class="action btn btn-success" data-toggle="modal" data-target="#action">Enlever en flash</button>
                                                 @endif
                                                 @if($actualite->is_new)
-                                                    <button id="{{ $actualite->id }}" name="older" class="older btn btn-success" data-toggle="modal" data-target="#action">Mettre en flash</button>
+                                                    <button id="{{ $actualite->id }}" name="older" class="action btn btn-success" data-toggle="modal" data-target="#action">Marquer comme ancien</button>
                                                 @endif
                                                 <button id="{{ $actualite->id }}" class="edit btn btn-info" data-toggle="modal" data-target="#form">Modifier</button>
                                                 <button id="{{ $actualite->id }}" class="btn btn-danger delete" data-toggle="modal" data-target="#delete" href="#delete">Supprimer</button>
@@ -70,6 +69,7 @@
     </div>
 </div>
 @endsection
+
 
 @section('form-modal')
     <form method="post" id="add-form" enctype="multipart/form-data">
@@ -117,10 +117,7 @@
 
 @section("cscripts")
     <script type="text/javascript">
-        actionData.name = "actualites";
-        $(document).ready(function(){
-            $('#slug').val("test");
-        })
+        actionData.name = "actualites"; 
     </script>
 @endsection
 

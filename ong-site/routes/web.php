@@ -24,8 +24,12 @@ Route::group(["namespace" => "App\Http\Controllers\Site"],function(){
     Route::get("/",[App\Http\Controllers\HomeController::class, 'index'])->name('acc');
 });
 
+Route::group(["prefix" => "news"],function(){
+   Route::get("/actualites/{slug}",[App\Http\Controllers\ActualitesController::class, 'actualitesDetails'])->name('actualites.details');     
+});
 
-Route::group(['middleware' => "auth","namespace" => "App\Http\Controllers\Back"],function(){
+
+Route::group(['middleware' => "auth"],function(){
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('home');
 
     Route::group(["prefix" => "menus"],function(){
@@ -65,6 +69,8 @@ Route::group(['middleware' => "auth","namespace" => "App\Http\Controllers\Back"]
                   ->name('actualites.edit');
         Route::get('/delete/{id}',[App\Http\Controllers\ActualitesController::class, 'delete'])
                   ->name('actualites.delete');
+        Route::post('/action',[App\Http\Controllers\ActualitesController::class, 'execution'])
+                  ->name('actualites.execution');      ;          
     });
 
     Route::group(["prefix" => "sliders"],function(){

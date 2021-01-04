@@ -27,6 +27,24 @@
             </div>
         </div>
     </div>
+    <div class="modal" id="action">
+        <div class="modal-dialog modal-confirm">
+           <div class="modal-content">
+               <div class="modal-header flex-column">
+                   <h4 class="modal-title w-100">Etes vous sure?</h4>
+                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+               </div>
+               <div class="modal-body">
+                   <div id="action_result"></div>
+                   <p>Voulez vous réelement effectuer cette action ? </p>
+               </div>
+               <div class="modal-footer justify-content-center">
+                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                   <button type="button" class="btn btn-danger ok">Valider</button>
+               </div>
+           </div>
+       </div>
+   </div>
     <div class="modal" id="delete">
         <div class="modal-dialog modal-confirm">
            <div class="modal-content">
@@ -74,6 +92,10 @@
             name : null,
             chemin : null
         }
+
+        var act;
+
+        var c = "{{csrf_token()}}"; 
         $(document).ready(function(){
             let appId;
 
@@ -94,7 +116,18 @@
             $('#delete .ok').click(function(e){
                 e.preventDefault();
                 deleteData(appId);
-            })
+            });
+
+            $(".action").click(function(e){
+                e.preventDefault();
+                appId = this.id;
+                act = this.name;
+            });
+
+            $('#action .ok').click(function(e){
+                e.preventDefault();
+                execAction(appId,act);
+            });
 
             $("#add").click(function(e){
                 e.preventDefault();
@@ -187,11 +220,15 @@
         function reset(){
             if($("#add-form :input"))
             $("#add-form :input").each(function(){
-
-                if($(this).attr('name') !=="_token"){
-                    $(this).val("");
-                    $('#'+$(this).attr('name')+"-error").text('');
-                } //$(this).val("");
+                switch($(this).attr('name')){
+                    case  '_token' :  $(this).val(c); break;
+                    case  'is_flash' :  $(this).val(c); break;
+                    case  'slug' :  $(this).val(c); break;
+                    case  'is_project' : $(this).val(c); break;
+                    default :   $(this).val("");
+                                $('#'+$(this).attr('name')+"-error").text('');
+                                break;
+                }
             });
 
             if($("#form form select"))
@@ -228,11 +265,41 @@
             })
         }
 
+        function execAction(id,action){
+            var formData = new FormData();
+            formData.append('_token', c);
+            formData.append('action', action);
+            formData.append('id', id);
+
+
+            $.ajax({
+                url : "/"+actionData.name+"/action",
+                type : "POST",
+                data : formData,
+                processData : false,
+                contentType : false,
+                success : function(data){
+                    treatmentAction(data.message);
+                }
+            })
+        }
+
         function treatmentDelete(message){
             html = "";
             reset();
             html = '<div class="alert alert-success">' + message + '</div>';
             $('#delete #action_result').html(html);
+
+            setTimeout(function(){
+                location.reload();
+            }, 3000);
+        }
+
+        function treatmentAction(message){
+            html = "";
+            reset();
+            html = '<div class="alert alert-success">' + message + '</div>';
+            $('#action #action_result').html(html);
 
             setTimeout(function(){
                 location.reload();

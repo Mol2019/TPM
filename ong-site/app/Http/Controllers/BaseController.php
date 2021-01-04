@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 //use App\Gestion\TreatmentGestion;
+use File;
 
 class BaseController extends Controller
 {
@@ -37,22 +38,17 @@ class BaseController extends Controller
     public function create(Request $request)
     {
       $toInsert = $request->all();
+      $file = NULL;
       if($request->file('image')):
         $file = $request->file('image');
-        if($file->isValid()) :
-          $toInsert['chemin'] = "assets/site/images/$this->name";
-          endif;
       endif;
-      dd($request->all());
-
-      dd($toInsert);
       if($request->slug):
         $toInsert['slug'] = $this->tg->generateSlug();
       endif;
       if($request->is_flash ):
         $toInsert['is_flash'] = true;
       endif;
-      $data = $this->tg->create($toInsert);
+      $data = $this->tg->create($toInsert,$file ?? NULL);
       $message = $data["result"] ? $this->name." enregistré avec succès" : "";
       return response()->json(["success" => $data["result"],"message" => $message,"response_data" => $data['data']],201);
     }

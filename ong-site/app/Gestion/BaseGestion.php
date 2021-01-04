@@ -11,10 +11,12 @@ class BaseGestion implements BaseGestionInterface
 {
   protected $model;
   protected $rules;
+  protected $name;
 
   public function __construct($model)
   {
     $this->model = $model;
+    $this->name = (new \ReflectionClass($this))->getShortName();
   }
 
   /**

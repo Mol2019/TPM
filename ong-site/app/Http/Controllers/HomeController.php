@@ -7,6 +7,8 @@ use Illuminate\Support\Collection;
 use App\Gestion\MenusGestion;
 use App\Gestion\ActualitesGestion;
 use App\Gestion\PartenairesGestion;
+use App\Gestion\SlidersGestion;
+
 use App\Http\Controllers\SiteController;
 use App\Models\Membre;
 use App\Models\Partenaire;
@@ -34,11 +36,13 @@ class HomeController extends SiteController
         $menu = new MenusGestion;
         $actualite = new ActualitesGestion;
         $partenaire = new PartenairesGestion;
+        $slides = new SlidersGestion;
 
         $data = new Collection;
         $data->menus = $menu->all();
         $data->actualites = $actualite->all();
         $data->partenaires = $partenaire->all();
+        $data->slides = $slides->all(); 
 
         //return view('site.index',compact('data'));
         return $this->viewLoader($data);
