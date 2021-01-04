@@ -39,20 +39,20 @@
                                             <td>{{ $actualite->slug }}</td>
                                             <td>{{ $actualite->image }}</td>
                                             <td>
-                                                @if($actualite->is_flash) 
+                                                @if($actualite->is_flash)
                                                     Vrai
                                                 @else
-                                                    Faux       
+                                                    Faux
                                                 @endif
                                             </td>
 
                                             <td>
-                                                @if(!$actualite->is_flash) 
+                                                @if(!$actualite->is_flash)
                                                     <button id="{{ $actualite->id }}" name="flash" class="flash btn btn-warning" data-toggle="modal" data-target="#action">Mettre en flash</button>
                                                 @else
                                                     <button id="{{ $actualite->id }}" name="not-flash" class="flash btn btn-success" data-toggle="modal" data-target="#action">Enlever en flash</button>
                                                 @endif
-                                                @if($actualite->is_new) 
+                                                @if($actualite->is_new)
                                                     <button id="{{ $actualite->id }}" name="older" class="older btn btn-success" data-toggle="modal" data-target="#action">Mettre en flash</button>
                                                 @endif
                                                 <button id="{{ $actualite->id }}" class="edit btn btn-info" data-toggle="modal" data-target="#form">Modifier</button>
@@ -95,17 +95,17 @@
                 <input name="image" type="file" id="image" class="form-control"/>
                 <span class="text-danger" id="image-error"> </span>
             </div>
-           
+
             <div class="form-group">
                <div class="form-check">
                     <label class="form-check-label" for="gridCheck">
-                        Est flash ? 
+                        Est flash ?
                     </label>
-                    <input value="1" class="form-check-input" name="is_flash" type="checkbox">
+                    <input value="1" class="form-check-input" name="is_flash" id="isFlash" type="checkbox">
                 </div>
                 <span class="text-danger" id="is_flash-error"> </span>
             </div>
-            <input name="slug" id="slug" class="form-control" type="hidden"/>
+            <input name="slug" id="slug" class="form-control" value="test" type="hidden"/>
             <input name="hidden_id" id="hidden_id" class="form-control" type="hidden"/>
         </div>
         <div class="modal-footer justify-content-center">
@@ -118,6 +118,9 @@
 @section("cscripts")
     <script type="text/javascript">
         actionData.name = "actualites";
+        $(document).ready(function(){
+            $('#slug').val("test");
+        })
     </script>
 @endsection
 

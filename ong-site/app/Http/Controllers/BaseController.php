@@ -39,16 +39,19 @@ class BaseController extends Controller
       $toInsert = $request->all();
       if($request->file('image')):
         $file = $request->file('image');
-        if($file->isValid()) : 
+        if($file->isValid()) :
           $toInsert['chemin'] = "assets/site/images/$this->name";
-          endif;  
+          endif;
       endif;
+      dd($request->all());
+
+      dd($toInsert);
       if($request->slug):
         $toInsert['slug'] = $this->tg->generateSlug();
       endif;
       if($request->is_flash ):
         $toInsert['is_flash'] = true;
-      endif;  
+      endif;
       $data = $this->tg->create($toInsert);
       $message = $data["result"] ? $this->name." enregistré avec succès" : "";
       return response()->json(["success" => $data["result"],"message" => $message,"response_data" => $data['data']],201);

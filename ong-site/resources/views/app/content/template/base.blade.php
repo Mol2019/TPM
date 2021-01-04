@@ -147,7 +147,6 @@
 
         function createFunction(data,formElement){
             let elementForm = new FormData(formElement) ;
-            console.log(formElement)
             $.ajax({
                 url : data.chemin,
                 type : "POST",

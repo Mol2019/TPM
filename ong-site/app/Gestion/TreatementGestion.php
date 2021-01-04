@@ -28,7 +28,7 @@ class TreatmentGestion extends TransactionGestion
     return ["result" => true,"data" => $data];
   }
 
-  
+
   public function generateSlug()
   {
     $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
@@ -38,7 +38,7 @@ class TreatmentGestion extends TransactionGestion
         $n = rand(0, $alphaLength);
         $pass[] = $alphabet[$n];
     }
-    if($this->model::where('slug',$pass)) : 
+    if($this->model::where('slug',$pass)->get()->count() > 0) :
       return self::generateSlug();
     endif;
     return implode($pass);
