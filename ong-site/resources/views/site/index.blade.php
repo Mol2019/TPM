@@ -24,7 +24,7 @@
                   </div>
                 </div>
               @endif
-          @endforeach  
+          @endforeach
         </div>
     </div>
   </section><!-- End Featured Section -->
@@ -36,24 +36,14 @@
           <h2>Mot du président</h2>
         </div>
         <div class="row">
-          <div class="col-lg-6">
-            <img src="{{asset('assets/site/img/about.jpg')}}" class="img-fluid" alt="">
+          <div class="col-lg-3">
+            <img src="{{$data->donnees->mp->image}}" class="img-fluid img-thumbnail" alt="">
           </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 content">
-            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
-            <p class="font-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
-            </p>
-            <ul>
-              <li><i class="icofont-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-              <li><i class="icofont-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-              <li><i class="icofont-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-            </ul>
+          <div class="col-lg-9 pt-4 pt-lg-0 content">
+            <h3>{{$data->donnees->mp->nom}}</h3>
+            <p class="font-italic">{{$data->donnees->mp->poste}}</p>
             <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum
+                {{$data->donnees->mp->content}}
             </p>
           </div>
         </div>
@@ -69,13 +59,13 @@
         </div>
         <div class="row entries">
             @if($data->donnees->actualites->count() > 0 )
-           
+
             @foreach($data->donnees->actualites as $actualite)
 
                 <article class="entry col-12 col-md-4 col-lg-4">
 
               <div class="entry-img">
-                <img 
+                <img
                     src="{{asset($actualite->image ?? 'assets/site/img/blog-1.jpg')}}" alt="" class="img-fluid">
               </div>
 
@@ -101,7 +91,7 @@
 
             </article><!-- End blog entry -->
 
-            @endforeach 
+            @endforeach
 
               <div class="blog-pagination">
                 <ul class="justify-content-center">
@@ -114,7 +104,7 @@
               </div>
 
           </div><!-- End blog entries list -->
-          @else 
+          @else
               <h2 class="entry-title"> Aucune actualité</h2>
 
           @endif
@@ -127,7 +117,7 @@
         </div>
         <div class="row">
         </div>
-     </section>-->   
+     </section>-->
     <section id="clients" class="clients">
       <div class="container">
 

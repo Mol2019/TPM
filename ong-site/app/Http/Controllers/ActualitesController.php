@@ -24,8 +24,8 @@ class ActualitesController extends BaseController
 
     public function actualitesDetails($slug)
     {
-        $data = new Collection; 
-        
+        $data = new Collection;
+
         $data->single = $this->tg->getByParam('slug',$slug,1)[0];
         $viewer = new SiteController('actualites.actualites-details');
         return $viewer->viewLoader($data);

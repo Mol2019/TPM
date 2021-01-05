@@ -42,9 +42,9 @@ class HomeController extends SiteController
         $data->menus = $menu->all();
         $data->actualites = $actualite->all();
         $data->partenaires = $partenaire->all();
-        $data->slides = $slides->all(); 
+        $data->slides = $slides->all();
+        $data->mp = $menu->getByParam("title","Mot du president")->first();
 
-        //return view('site.index',compact('data'));
         return $this->viewLoader($data);
     }
 

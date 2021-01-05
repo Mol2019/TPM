@@ -13,9 +13,13 @@ class MenusGestion extends TreatmentGestion
       "title" => "required|min:2",
       "content" => "required",
     ];
+    $reflection = new \ReflectionClass($this->model);
+    $this->name = $reflection->getShortName();
   }
 
   /*protected function create(Request $request){
 
   }*/
+
+
 }

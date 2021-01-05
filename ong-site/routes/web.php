@@ -25,8 +25,9 @@ Route::group(["namespace" => "App\Http\Controllers\Site"],function(){
 });
 
 Route::group(["prefix" => "news"],function(){
-   Route::get("/actualites/{slug}",[App\Http\Controllers\ActualitesController::class, 'actualitesDetails'])->name('actualites.details');     
+   Route::get("/actualites/{slug}",[App\Http\Controllers\ActualitesController::class, 'actualitesDetails'])->name('actualites.details');
 });
+Route::get('/sections/{title}',[App\Http\Controllers\MenusController::class, 'menuDetails'])->name('sections.details');
 
 
 Route::group(['middleware' => "auth"],function(){
@@ -70,7 +71,7 @@ Route::group(['middleware' => "auth"],function(){
         Route::get('/delete/{id}',[App\Http\Controllers\ActualitesController::class, 'delete'])
                   ->name('actualites.delete');
         Route::post('/action',[App\Http\Controllers\ActualitesController::class, 'execution'])
-                  ->name('actualites.execution');      ;          
+                  ->name('actualites.execution');      ;
     });
 
     Route::group(["prefix" => "sliders"],function(){
@@ -253,6 +254,7 @@ Route::group(['middleware' => "auth"],function(){
         Route::get('/delete/{id}',[App\Http\Controllers\JobnewsController::class, 'delete'])
                   ->name('jobnews.delete');
     });
+
 });
 
 Auth::routes();
