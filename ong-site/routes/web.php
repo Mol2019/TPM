@@ -24,10 +24,16 @@ Route::group(["namespace" => "App\Http\Controllers\Site"],function(){
     Route::get("/",[App\Http\Controllers\HomeController::class, 'index'])->name('acc');
 });
 
+Route::get('/news',[App\Http\Controllers\HomeController::class, 'actualites'])->name('news');
+
 Route::group(["prefix" => "news"],function(){
    Route::get("/actualites/{slug}",[App\Http\Controllers\ActualitesController::class, 'actualitesDetails'])->name('actualites.details');
 });
 Route::get('/sections/{title}',[App\Http\Controllers\MenusController::class, 'menuDetails'])->name('sections.details');
+Route::get('/about',[App\Http\Controllers\HomeController::class, 'about'])->name('about');
+Route::get('/action',[App\Http\Controllers\HomeController::class, 'action'])->name('actions');
+
+
 
 
 Route::group(['middleware' => "auth"],function(){

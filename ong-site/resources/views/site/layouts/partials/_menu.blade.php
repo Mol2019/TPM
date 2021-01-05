@@ -5,15 +5,15 @@
 
           <li class="drop-down"><a href="#">&Agrave; propos</a>
             <ul>
-              <li><a href="#mp">Mot du Président</a></li>
+              <li><a href="{{route('sections.details','Mot du président')}}p">Mot du Président</a></li>
               <!-- <li><a href="team.html">Team</a></li> -->
 
               <li class="drop-down"><a href="#">Présentation</a>
                 <ul>
-                  <li><a href="#">Notre vision</a></li>
-                  <li><a href="#">Nos valeurs</a></li>
-                  <li><a href="#">Nos missions</a></li>
-                  <li><a href="#">Notre histoire</a></li>
+                  <li><a href="{{route('sections.details','Vision')}}">Notre vision</a></li>
+                  <li><a href="{{route('sections.details','Valeurs')}}">Nos valeurs</a></li>
+                  <li><a href="{{route('sections.details','Missions')}}">Nos missions</a></li>
+                  <li><a href="{{route('sections.details','Histoire')}}">Notre histoire</a></li>
                 </ul>
               </li>
 

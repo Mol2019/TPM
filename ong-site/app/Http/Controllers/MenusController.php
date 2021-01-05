@@ -22,8 +22,11 @@ class MenusController extends BaseController
     {
         $data = new Collection;
 
-        $data->single = $this->tg->getByParam('title',$title,1)[0];
+        $data->single = $this->tg->getByParam('title',$title,1)[0] ?? NULL ;
         $viewer = new SiteController('menu.menu-details');
-        return $viewer->viewLoader($data);
+        if($data->single):
+            return $viewer->viewLoader($data);
+        endif;
+        return back();    
     }
 }

@@ -29,28 +29,30 @@
     </div>
   </section><!-- End Featured Section -->
 
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container">
-         <div class="section-title" data-aos="fade-up">
-          <h2>Mot du président</h2>
-        </div>
-        <div class="row">
-          <div class="col-lg-3">
-            <img src="{{$data->donnees->mp->image}}" class="img-fluid img-thumbnail" alt="">
+    @if($data->donnees->mp)
+      <!-- ======= About Section ======= -->
+      <section id="about" class="about">
+        <div class="container">
+          <div class="section-title" data-aos="fade-up">
+            <h2>Mot du président</h2>
           </div>
-          <div class="col-lg-9 pt-4 pt-lg-0 content">
-            <h3>{{$data->donnees->mp->nom}}</h3>
-            <p class="font-italic">{{$data->donnees->mp->poste}}</p>
-            <p>
-                {{$data->donnees->mp->content}}
-            </p>
+          <div class="row">
+            <div class="col-lg-3">
+              <img src="{{$data->donnees->mp->image}}" class="img-fluid img-thumbnail" alt="">
+            </div>
+            <div class="col-lg-9 pt-4 pt-lg-0 content">
+              <h3>{{$data->donnees->mp->nom}}</h3>
+              <p class="font-italic">{{$data->donnees->mp->poste}}</p>
+              <p>
+                  {{$data->donnees->mp->content}}
+              </p>
+            </div>
           </div>
+
         </div>
-
-      </div>
-    </section><!-- End About Section -->
-
+      </section><!-- End About Section -->
+    @endif
+    
     <!-- ======= Services Section ======= -->
      <section id="blog" class="blog">
       <div class="container">
