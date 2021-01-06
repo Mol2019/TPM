@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\BaseController;
-use Illuminate\Http\Request;
 use App\Gestion\EquipesGestion;
+use Illuminate\Support\Collection;
+
 
 class EquipesController extends BaseController
 {
@@ -13,5 +14,14 @@ class EquipesController extends BaseController
     {
         $this->tg = new EquipesGestion;
         $this->name = "equipes";
+    }
+
+    public function structuration()
+    {
+        $data = new Collection;
+
+        $data->team = $this->tg->all();
+        $viewer = new SiteController('structuration');
+        return $viewer->viewLoader($data);
     }
 }

@@ -20,9 +20,9 @@
 
               <li class="drop-down"><a href="#">Organisation</a>
                 <ul>
-                  <li><a href="#">Notre Structuration</a></li>
-                  <li><a href="#">Nos Acteurs</a></li>
-                  <li><a href="#">Notre Réseau</a></li>
+                  <li><a href="{{ route('structuration') }}">Notre Structuration</a></li>
+                  <li><a href="{{ route('actors') }}">Nos Acteurs</a></li>
+                  <li><a href="{{ route('partners') }}">Notre Réseau</a></li>
                 </ul>
               </li>
 

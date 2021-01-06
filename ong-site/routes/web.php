@@ -32,6 +32,10 @@ Route::group(["prefix" => "news"],function(){
 Route::get('/sections/{title}',[App\Http\Controllers\MenusController::class, 'menuDetails'])->name('sections.details');
 Route::get('/about',[App\Http\Controllers\HomeController::class, 'about'])->name('about');
 Route::get('/action',[App\Http\Controllers\HomeController::class, 'action'])->name('actions');
+Route::get('/structuration',[App\Http\Controllers\EquipesController::class, 'structuration'])->name('structuration');
+Route::get('/actors',[App\Http\Controllers\ActeursController::class, 'acteurs'])->name('actors');
+Route::get('/partners',[App\Http\Controllers\PartenairesController::class, 'partenaires'])->name('partners');
+
 
 
 
@@ -259,6 +263,19 @@ Route::group(['middleware' => "auth"],function(){
                   ->name('jobnews.edit');
         Route::get('/delete/{id}',[App\Http\Controllers\JobnewsController::class, 'delete'])
                   ->name('jobnews.delete');
+    });
+
+    Route::group(["prefix" => "communiques"],function(){
+        Route::get('/',[App\Http\Controllers\CommuniquesController::class, 'index'])
+                  ->name('communiques.index');
+        Route::post('/create',[App\Http\Controllers\CommuniquesController::class, 'create'])
+                  ->name('communiques.create');
+        Route::post('/update',[App\Http\Controllers\CommuniquesController::class, 'update'])
+                  ->name('communiques.update');
+        Route::get('/edit/{id}',[App\Http\Controllers\CommuniquesController::class, 'edit'])
+                  ->name('communiques.edit');
+        Route::get('/delete/{id}',[App\Http\Controllers\CommuniquesController::class, 'delete'])
+                  ->name('communiques.delete');
     });
 
 });
