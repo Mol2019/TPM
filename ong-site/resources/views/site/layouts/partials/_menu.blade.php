@@ -31,9 +31,9 @@
 
           <li class="drop-down"><a href="#">Actions</a>
             <ul>
-              <li><a href="about.html">Nos mesures d'insertion</a></li>
-              <li><a href="team.html">Nos formations</a></li>
-              <li><a href="team.html">Nos projets</a></li>
+              <li><a href="{{route('sections.details','Mesure d\'insertion')}}">Nos mesures d'insertion</a></li>
+              <li><a href="{{route('formations')}}">Nos formations</a></li>
+              <li><a href="{{route('projets')}}">Nos projets</a></li>
             </ul>
           </li>
 
@@ -42,25 +42,25 @@
 
               <li class="drop-down"><a href="#">Médias</a>
                 <ul>
-                  <li><a href="#">Notre photothèque</a></li>
-                  <li><a href="#">Notre vidéothèque</a></li>
+                  <li><a href="{{route('phototheque')}}">Notre photothèque</a></li>
+                  <li><a href="{{route('videotheque')}}">Notre vidéothèque</a></li>
                 </ul>
               </li>
 
               <li class="drop-down"><a href="#">Ouvrages</a>
                 <ul>
-                  <li><a href="#">Notre appli Mobile</a></li>
-                  <li><a href="#">Nos statuts</a></li>
-                  <li><a href="#">Notre règlement intérieur</a></li>
-                  <li><a href="#">Nos manuels et guides</a></li>
+                  <li><a href="{{route('mobile')}}">Notre appli Mobile</a></li>
+                  <li><a href="{{route('status')}}">Nos statuts</a></li>
+                  <li><a href="{{route('ri')}}">Notre règlement intérieur</a></li>
+                  <li><a href="{{route('mg')}}">Nos manuels et guides</a></li>
                 </ul>
               </li>
 
               <li class="drop-down"><a href="#">Publications</a>
                 <ul>
-                  <li><a href="#">Notre revue</a></li>
-                  <li><a href="#">Nos rapports d'activité</a></li>
-                  <li><a href="#">Le journal des donateurs</a></li>
+                  <li><a href="{{route('revue')}}">Notre revue</a></li>
+                  <li><a href="{{route('reports')}}">Nos rapports d'activité</a></li>
+                  <li><a href="{{route('journal')}}">Le journal des donateurs</a></li>
                 </ul>
               </li>
 

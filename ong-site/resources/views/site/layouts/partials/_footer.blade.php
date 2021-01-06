@@ -38,11 +38,11 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Nos activités</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Nos formations</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Nos projets</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Mésure d'insertion</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Notre agenda</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Nos évènements</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{route('formations')}}">Nos formations</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{route('projets')}}">Nos projets</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{route('sections.details','Mesure d\'insertion')}}">Mésure d'insertion</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{route('formations')}}">Notre agenda</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{route('formations')}}">Nos évènements</a></li>
             </ul>
           </div>
 

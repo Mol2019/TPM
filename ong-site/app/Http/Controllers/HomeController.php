@@ -8,6 +8,8 @@ use App\Gestion\MenusGestion;
 use App\Gestion\ActualitesGestion;
 use App\Gestion\PartenairesGestion;
 use App\Gestion\SlidersGestion;
+use App\Gestion\ProgrammesGestion;
+
 
 use App\Http\Controllers\SiteController;
 use App\Models\Membre;
@@ -33,6 +35,8 @@ class HomeController extends SiteController
      */
     public function index()
     {
+        $this->name = "index";
+
         $menu = new MenusGestion;
         $actualite = new ActualitesGestion;
         $partenaire = new PartenairesGestion;
@@ -58,5 +62,50 @@ class HomeController extends SiteController
 
 
         return view("app.content.dashboard",compact('data'));
+    }
+
+    public function ri()
+    {
+        $this->name = "ouvrages.reglement";
+
+        $data = new Collection;
+         
+        return $this->viewLoader($data);
+    }
+
+    public function mg()
+    {
+        $this->name = "ouvrages.manuels";
+
+        $data = new Collection;
+         
+        return $this->viewLoader($data);
+    }
+
+    public function mobile()
+    {
+        $this->name = "ouvrages.mobile";
+
+        $data = new Collection;
+         
+        return $this->viewLoader($data);
+    }
+
+    public function status()
+    {
+        $this->name = "ouvrages.statuts";
+
+        $data = new Collection;
+         
+        return $this->viewLoader($data);
+    }
+
+    public function contact()
+    {
+        $this->name = "contact";
+
+        $data = new Collection;
+         
+        return $this->viewLoader($data);
     }
 }

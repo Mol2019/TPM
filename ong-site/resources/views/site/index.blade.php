@@ -112,14 +112,14 @@
           @endif
 
     </section>
-     <!--<section id="about" class="about">
+     <section id="about" class="about">
       <div class="container">
          <div class="section-title" data-aos="fade-up">
           <h2>Chiffres clés</h2>
         </div>
         <div class="row">
         </div>
-     </section>-->
+     </section>
     <section id="clients" class="clients">
       <div class="container">
 

@@ -15,26 +15,40 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/contact',function(){
-    return view('site.contact');
-})->name('contact');
-
 
 Route::group(["namespace" => "App\Http\Controllers\Site"],function(){
     Route::get("/",[App\Http\Controllers\HomeController::class, 'index'])->name('acc');
 });
+Route::get("/contact",[App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
 
 Route::get('/news',[App\Http\Controllers\HomeController::class, 'actualites'])->name('news');
 
 Route::group(["prefix" => "news"],function(){
    Route::get("/actualites/{slug}",[App\Http\Controllers\ActualitesController::class, 'actualitesDetails'])->name('actualites.details');
 });
+
+
 Route::get('/sections/{title}',[App\Http\Controllers\MenusController::class, 'menuDetails'])->name('sections.details');
 Route::get('/about',[App\Http\Controllers\HomeController::class, 'about'])->name('about');
 Route::get('/action',[App\Http\Controllers\HomeController::class, 'action'])->name('actions');
 Route::get('/structuration',[App\Http\Controllers\EquipesController::class, 'structuration'])->name('structuration');
 Route::get('/actors',[App\Http\Controllers\ActeursController::class, 'acteurs'])->name('actors');
 Route::get('/partners',[App\Http\Controllers\PartenairesController::class, 'partenaires'])->name('partners');
+Route::get('/projets',[App\Http\Controllers\ProgrammesController::class, 'projets'])->name('projets');
+Route::get('/formations',[App\Http\Controllers\ProgrammesController::class, 'formations'])->name('formations');
+Route::get("/actions/formations/{slug}",[App\Http\Controllers\ProgrammesController::class, 'formationDetails'])->name('formations.details');
+Route::get("/actions/projets/{slug}",[App\Http\Controllers\ProgrammesController::class, 'projetDetails'])->name('projets.details');
+
+Route::get("/phototheque",[App\Http\Controllers\GaleriesController::class, 'phototheque'])->name('phototheque');
+Route::get("/videotheque",[App\Http\Controllers\GaleriesController::class, 'videotheque'])->name('videotheque');
+Route::get("/appli-mobile",[App\Http\Controllers\HomeController::class, 'mobile'])->name('mobile');
+Route::get("/nos-statuts",[App\Http\Controllers\HomeController::class, 'status'])->name('status');
+Route::get("/reglement-interieur",[App\Http\Controllers\HomeController::class, 'ri'])->name('ri');
+Route::get("/manuels-et-guide",[App\Http\Controllers\HomeController::class, 'mg'])->name('mg');
+Route::get("/revue",[App\Http\Controllers\PublicationsController::class, 'revue'])->name('revue');
+Route::get("/rapports",[App\Http\Controllers\ProgrammesController::class, 'liste'])->name('reports');
+Route::get("/nos-donateurs",[App\Http\Controllers\DonateursController::class, 'liste'])->name('journal');
+
 
 
 
