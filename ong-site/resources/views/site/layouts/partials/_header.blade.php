@@ -6,20 +6,15 @@
           <i class="icofont-phone"></i> +225 00 00 00 00
         </div>
         <div class="contact-flash">
+         
           <div class="ticker-wrap">
             <div class="d-flex justify-content-between align-items-center breaking-news">
-              <div class="d-flex flex-row flex-grow-1 flex-fill justify-content-center bg-danger
-              px-1 news"><span class="d-flex align-items-center">&nbsp;Flash</span> </div>
-
-              <marquee class="news-scroll" behavior="scroll" direction="left" onmouseover="this.stop();"
-              onmouseout="this.start();">
-
-                  @foreach ($data->flashs as $flash)
-                    <a href="#"> {{$flash->content}} </a>   
-                  @endforeach
-
-              </marquee>
-
+              <div class="d-flex flex-row flex-grow-1 flex-fill justify-content-center bg-danger px-1 news">
+                <span class="d-flex align-items-center">&nbsp;Flash</span> 
+              </div>
+                <marquee class="news-scroll" behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+                      <a href="#"> {{$data->flashs[0]->content}} </a>   
+                </marquee>
           </div>
           </div>
         </div>

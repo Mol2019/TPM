@@ -20,6 +20,7 @@
        <a href="{{ route('menus.index') }}" class="dropdown-item"> Menus </a>
        <a href="{{ route('actualites.index') }}" class="dropdown-item"> Actualités</a>
        <a href="{{ route('sliders.index') }}" class="dropdown-item"> Les slides</a>
+       <a href="{{ route('chiffres-cles.index') }}" class="dropdown-item"> Les chiffres clés</a>   
     </div>
 </li>
 

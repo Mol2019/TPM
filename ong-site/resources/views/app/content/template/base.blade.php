@@ -172,6 +172,12 @@
             $("#form form input").each(function(){
                 $('#'+$(this).attr('name')).val(data[$(this).attr('name')]);
             });
+            $("#form form select").each(function(){
+                $('#'+$(this).attr('name')).val(data[$(this).attr('name')]);
+            });
+            $("#form form textarea").each(function(){
+                $('#'+$(this).attr('name')).val(data[$(this).attr('name')]);
+            });
             $('#hidden_id').val(data.id);
         }
 
@@ -271,7 +277,7 @@
             formData.append('action', action);
             formData.append('id', id);
 
-
+            console.log("/"+actionData.name+"/action")
             $.ajax({
                 url : "/"+actionData.name+"/action",
                 type : "POST",

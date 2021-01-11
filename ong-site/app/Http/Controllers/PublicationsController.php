@@ -25,4 +25,13 @@ class PublicationsController extends BaseController
         $viewer = new SiteController('publications.revue');
         return $viewer->viewLoader($data);
     }
+
+    public function presse()
+    {
+        $data = new Collection;
+
+        //$data->single = $this->tg->getByParam('type','video');
+        $viewer = new SiteController('actualites.presse');
+        return $viewer->viewLoader($data);
+    }
 }

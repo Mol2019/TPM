@@ -9,7 +9,7 @@ use App\Gestion\ActualitesGestion;
 use App\Gestion\PartenairesGestion;
 use App\Gestion\SlidersGestion;
 use App\Gestion\ProgrammesGestion;
-
+use App\Gestion\ChiffresClesGestion;
 
 use App\Http\Controllers\SiteController;
 use App\Models\Membre;
@@ -41,6 +41,10 @@ class HomeController extends SiteController
         $actualite = new ActualitesGestion;
         $partenaire = new PartenairesGestion;
         $slides = new SlidersGestion;
+        $chiffres = new ChiffresClesGestion;
+        $programmes = new ProgrammesGestion;
+
+
 
         $data = new Collection;
         $data->menus = $menu->all();
@@ -48,7 +52,8 @@ class HomeController extends SiteController
         $data->partenaires = $partenaire->all();
         $data->slides = $slides->all();
         $data->mp = $menu->getByParam("title","Mot du president")->first();
-
+        $data->chiffres = $chiffres->all();
+        $data->programmes = $programmes->all();
         return $this->viewLoader($data);
     }
 

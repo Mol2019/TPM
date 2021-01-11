@@ -44,6 +44,8 @@
                                             <td>{{ $partenaire->facebook }}</td>
                                             <td>{{ $partenaire->twitter }}</td>
                                             <td>{{ $partenaire->email }}</td>
+                                            <td>{{ $partenaire->contact }}</td>
+
                                             <td>{{ $partenaire->whatsapp }}</td>
                                             <td>{{ $partenaire->telegram }}</td>
                                             <td>

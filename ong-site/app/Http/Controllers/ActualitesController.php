@@ -30,4 +30,22 @@ class ActualitesController extends BaseController
         $viewer = new SiteController('actualites.actualites-details');
         return $viewer->viewLoader($data);
     }
+
+    public function news()
+    {
+        $data = new Collection;
+
+        $data->news = $this->tg->getByParam('is_new',true);
+        $viewer = new SiteController('actualites.news');
+        return $viewer->viewLoader($data);
+    }
+
+    public function agenda()
+    {
+        $data = new Collection;
+
+        $data->news = $this->tg->getByParam('is_new',true);
+        $viewer = new SiteController('actualites.agenda');
+        return $viewer->viewLoader($data);
+    }
 }

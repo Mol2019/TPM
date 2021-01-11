@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\BaseController;
 use Illuminate\Http\Request;
 use App\Gestion\JobnewsGestion;
+use Illuminate\Support\Collection;
+
 
 class JobnewsController extends BaseController
 {
@@ -13,5 +15,14 @@ class JobnewsController extends BaseController
     {
         $this->tg = new JobnewsGestion;
         $this->name ="jobnews";
+    }
+
+    public function liste()
+    {
+        $data = new Collection;
+
+        $data->news = $this->tg->all();
+        $viewer = new SiteController('actualites.jnews');
+        return $viewer->viewLoader($data);
     }
 }

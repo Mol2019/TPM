@@ -49,8 +49,12 @@ Route::get("/revue",[App\Http\Controllers\PublicationsController::class, 'revue'
 Route::get("/rapports",[App\Http\Controllers\ProgrammesController::class, 'liste'])->name('reports');
 Route::get("/nos-donateurs",[App\Http\Controllers\DonateursController::class, 'liste'])->name('journal');
 
-
-
+Route::get("/nos-news",[App\Http\Controllers\ActualitesController::class,'news'])->name('nouvelles');
+Route::get("/notre-agenda",[App\Http\Controllers\ActualitesController::class,'agenda'])->name('agend');
+Route::get("/nos-communiques",[App\Http\Controllers\CommuniquesController::class,'communiques'])->name('coms');
+Route::get("/nos-evenements",[App\Http\Controllers\EvenementsController::class,'liste'])->name('events');
+Route::get("/nos-jobs-news",[App\Http\Controllers\JobnewsController::class,'liste'])->name('jnews');
+Route::get("/dans-la-presse",[App\Http\Controllers\PublicationsController::class,'presse'])->name('presse');
 
 
 
@@ -109,6 +113,8 @@ Route::group(['middleware' => "auth"],function(){
                   ->name('sliders.edit');
         Route::get('/delete/{id}',[App\Http\Controllers\SlidersController::class, 'delete'])
                   ->name('sliders.delete');
+        Route::post('/action',[App\Http\Controllers\SlidersController::class, 'execAction'])
+                  ->name('sliders.delete');          
     });
 
     Route::group(["prefix" => "acteurs"],function(){

@@ -29,6 +29,8 @@ class TreatmentGestion extends TransactionGestion
           File::makeDirectory("assets/site/images/$this->name", $mode = 0777, true, true);
           $extension = $file->getClientOriginalExtension();
           $data['image'] = "assets/site/images/$this->name/$data[title].".$extension;
+          if($data['logo'])
+            $data['logo'] = "assets/site/images/$this->name/$data[nom].".$extension;  
           $file->move("assets/site/images/$this->name", $data['image']);
         endif;
       }
@@ -61,13 +63,23 @@ class TreatmentGestion extends TransactionGestion
     * @return Collection - errors get
     * @return string - succefuly message
     */
-  public function update($data,$id)
+  public function update($data,$id,$file=NULL)
   {
     $errors = $this->checkRules($this->rules,$data);
     if($errors->count() > 0 ){
       return ["result" => false,"data" => $errors];
     }else{
       unset($data['hidden_id']);
+      if($file){
+        if($file->isValid()) :
+          File::makeDirectory("assets/site/images/$this->name", $mode = 0777, true, true);
+          $extension = $file->getClientOriginalExtension();
+          $data['image'] = "assets/site/images/$this->name/$data[title].".$extension;
+          if($data['logo'])
+            $data['logo'] = "assets/site/images/$this->name/$data[nom].".$extension;
+          $file->move("assets/site/images/$this->name", $data['image']);
+        endif;
+      }
       $this->createOrUpdate($data,$id);
     }
     return ["result" => true,"data" => $data];

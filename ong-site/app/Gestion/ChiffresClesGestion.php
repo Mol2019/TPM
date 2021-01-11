@@ -4,16 +4,14 @@ namespace App\Gestion;
 use App\Models\ChiffreCle;
 use App\Gestion\TreatmentGestion;
 
-class ChiffreClesGestion extends TreatmentGestion
+class ChiffresClesGestion extends TreatmentGestion
 {
   public function __construct()
   {
   $this->model = new ChiffreCle;
     $this->rules = [
-      "title" => "required|min:2",
-      "content" => "required",
-      "image" => "required",
-      "slug" => "required",
+      "libelle" => "required|min:2",
+      "valeur" => "required|min:0",
     ];
   }
 

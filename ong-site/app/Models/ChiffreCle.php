@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ChiffreCle extends Model
 {
     use HasFactory;
+    protected $table = "chiffres_cles";
+
+    protected $fillable = ["libelle","description","valeur","image","statut"];
 }

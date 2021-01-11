@@ -41,8 +41,8 @@
               <li><i class="bx bx-chevron-right"></i> <a href="{{route('formations')}}">Nos formations</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{route('projets')}}">Nos projets</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{route('sections.details','Mesure d\'insertion')}}">Mésure d'insertion</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{{route('formations')}}">Notre agenda</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{{route('formations')}}">Nos évènements</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{route('agend')}}">Notre agenda</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{route('events')}}">Nos évènements</a></li>
             </ul>
           </div>
 
@@ -76,7 +76,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>Eterna</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>OngServiceForJob</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->

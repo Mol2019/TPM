@@ -94,12 +94,12 @@
           <li class="drop-down"><a href="#">Actualités</a>
             <ul>
 
-              <li><a href="#">Nos news</a></li>
-              <li><a href="#">Notre agenda</a></li>
-              <li><a href="#">Nos communiqués</a></li>
-              <li><a href="#">Nos évènements</a></li>
-              <li><a href="#">Nos job-news</a></li>
-              <li><a href="#">Nous dans la Presse</a></li>
+              <li><a href="{{ route('nouvelles') }}">Nos news</a></li>
+              <li><a href="{{ route('agend') }}">Notre agenda</a></li>
+              <li><a href="{{ route('coms') }}">Nos communiqués</a></li>
+              <li><a href="{{ route('events') }}">Nos évènements</a></li>
+              <li><a href="{{ route('jnews') }}">Nos job-news</a></li>
+              <li><a href="{{ route('presse') }}">Nous dans la Presse</a></li>
 
             </ul>
           </li>

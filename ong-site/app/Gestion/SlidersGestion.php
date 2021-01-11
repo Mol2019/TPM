@@ -17,7 +17,17 @@ class SlidersGestion extends TreatmentGestion
     ];
   }
 
-  /*protected function create(Request $request){
+  public function execution($data)
+  {
+    $model = $this->model::find($data['id']);
+    if($model->is_online) :
+      $model->is_online = false;  
+    else : 
+      $model->is_online = true;
+    endif;
+    $model->save();
+    $message = $data['name']." mis à jour avec succès";
+    return response()->json(["success" => true,"message" => $message],201);
 
-  }*/
+  }
 }

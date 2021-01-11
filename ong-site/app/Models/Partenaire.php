@@ -9,6 +9,6 @@ class Partenaire extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["nom"];
+    protected $fillable = ["nom","sigle","logo","site_url","facebook","twitter","email","linkdln","contact","whatsapp","telegram","is_online"];
 
 }

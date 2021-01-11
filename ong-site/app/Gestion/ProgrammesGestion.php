@@ -12,7 +12,6 @@ class ProgrammesGestion extends TreatmentGestion
     $this->rules = [
       "label" => "required|min:2",
       "slug" => "required|min:2",
-      "image" => "required|image",
       "content" => "required"
     ];
   }

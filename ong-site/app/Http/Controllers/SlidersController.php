@@ -14,4 +14,9 @@ class SlidersController extends BaseController
         $this->tg = new SlidersGestion();
         $this->name = "sliders";
     }
+
+    public function execAction(Request $request)
+    {   
+        return $this->tg->execution($request);
+    }
 }
