@@ -1,4 +1,4 @@
-@extends('app.content.template.base',["label" => "La galerie"])
+@extends('app.content.template.base',["title" => "La galerie"])
 
 @section('app-content')
 <div class="data-table-area mg-b-15">
@@ -23,20 +23,36 @@
                                 <thead>
                                     <tr>
                                         <th data-field="tite" data-editable="true">Titre</th>
+                                        <th data-field="type" data-editable="true">Type</th>
                                         <th data-field="content" data-editable="true">Contenu</th>
                                         <th data-field="slug" data-editable="true">Slug</th>
-                                        <th data-field="image" data-editable="true">Image</th>
+                                        <th data-field="image" data-editable="true">Lien</th>
+                                        <th data-field="status" data-editable="true">Statut</th>
                                         <th data-field="action"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($data as $galerie)
                                         <tr>
-                                            <td>{{ $galerie->nom }}</td>
-                                            <td>{{ $galerie->access_key }}</td>
-                                            <td>{{ $galerie->access_key }}</td>
-                                            <td>{{ $galerie->access_key }}</td>
+                                            <td>{{ $galerie->title }}</td>
+                                            <td>{{ $galerie->type }}</td>
+                                            <td>{{ $galerie->content }}</td>
+                                            <td>{{ $galerie->slug }}</td>
+                                            <td>{{ $galerie->image }}</td>
                                             <td>
+                                                @if($galerie->is_online)
+                                                    En ligne
+                                                @else
+                                                    Hors ligne    
+                                                @endif
+                                            </td>
+                                            
+                                            <td>
+                                                @if($galerie->is_online)
+                                                     <button id="{{ $galerie->id }}" name="online" class="action btn btn-warning" data-toggle="modal" data-target="#action">Mettre hors ligne</button>
+                                                @else
+                                                    <button id="{{ $galerie->id }}" name="offline" class="action btn btn-success" data-toggle="modal" data-target="#action">Mettre en ligne</button>
+                                                @endif
                                                 <button id="{{ $galerie->id }}" class="edit btn btn-info" data-toggle="modal" data-target="#form">Modifier</button>
                                                 <button id="{{ $galerie->id }}" class="btn btn-danger delete" data-toggle="modal" data-target="#delete" href="#delete">Supprimer</button>
                                             </td>
@@ -56,16 +72,24 @@
 @section('form-modal')
     <form method="post" id="add-form">
         <div class="modal-header flex-column text-center bg-primary">
-            <h4 class="modal-label w-100">Ajouter une galerie</h4>
+            <h4 class="modal-title w-100">Ajouter une galerie</h4>
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         </div>
         <div class="modal-body">
             @csrf
             <div id="form_result"></div>
             <div class="form-group">
-                <label for="label">Titre : </label>
-                <input name="label" id="label" class="form-control"/>
-                <span class="text-danger" id="label-error"> </span>
+                <label for="title">Titre : </label>
+                <input name="title" id="title" class="form-control"/>
+                <span class="text-danger" id="title-error"> </span>
+            </div>
+            <div class="form-group">
+                <label for="type">Type : </label>
+                <select name="type" id="type" class="form-control">
+                    <option value="" class="text-muted"></option>
+                    <option value="image">Photos</option>
+                    <option value="video">Vidéo</option>
+                </select>
             </div>
              <div class="form-group">
                 <label for="content">Contenu : </label>
@@ -78,9 +102,7 @@
                 <span class="text-danger" id="image-error"> </span>
             </div>
              <div class="form-group">
-                <label for="slug">Slug : </label>
-                <input name="slug" type="slug" id="slug" class="form-control"/>
-                <span class="text-danger" id="slug-error"> </span>
+                <input type="hidden" name="slug" type="slug" id="slug" class="form-control"/>
             </div>
             <input name="hidden_id" id="hidden_id" class="form-control" type="hidden"/>
         </div>

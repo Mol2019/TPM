@@ -22,16 +22,21 @@ class GaleriesController extends BaseController
     {
         $data = new Collection;
 
-        $data->single = $this->tg->getByParam('type','image');
+        $data->photos = $this->tg->getByParam('type','image');
         $viewer = new SiteController('galeries.phototheque');
         return $viewer->viewLoader($data);
+    }
+
+    public function execAction(Request $request)
+    {   
+        return $this->tg->execution($request);
     }
 
     public function videotheque()
     {
         $data = new Collection;
 
-        $data->single = $this->tg->getByParam('type','video');
+        $data->videos = $this->tg->getByParam('type','video');
         $viewer = new SiteController('galeries.videotheque');
         return $viewer->viewLoader($data);
     }

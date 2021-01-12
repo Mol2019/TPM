@@ -99,7 +99,7 @@ Route::group(['middleware' => "auth"],function(){
         Route::get('/delete/{id}',[App\Http\Controllers\ActualitesController::class, 'delete'])
                   ->name('actualites.delete');
         Route::post('/action',[App\Http\Controllers\ActualitesController::class, 'execution'])
-                  ->name('actualites.execution');      ;
+                  ->name('actualites.execution');
     });
 
     Route::group(["prefix" => "sliders"],function(){
@@ -118,16 +118,18 @@ Route::group(['middleware' => "auth"],function(){
     });
 
     Route::group(["prefix" => "acteurs"],function(){
-      Route::get('/',[App\Http\Controllers\ActeursController::class, 'index'])
-                ->name('acteurs.index');
-      Route::post('/create',[App\Http\Controllers\ActeursController::class, 'create'])
-                ->name('acteurs.create');
-      Route::post('/update',[App\Http\Controllers\ActeursController::class, 'update'])
-                ->name('acteurs.update');
-      Route::get('/edit/{id}',[App\Http\Controllers\ActeursController::class, 'edit'])
-                ->name('acteurs.edit');
-      Route::get('/delete/{id}',[App\Http\Controllers\ActeursController::class, 'delete'])
-                ->name('acteurs.delete');
+        Route::get('/',[App\Http\Controllers\ActeursController::class, 'index'])
+                        ->name('acteurs.index');
+        Route::post('/create',[App\Http\Controllers\ActeursController::class, 'create'])
+                        ->name('acteurs.create');
+        Route::post('/update',[App\Http\Controllers\ActeursController::class, 'update'])
+                        ->name('acteurs.update');
+        Route::get('/edit/{id}',[App\Http\Controllers\ActeursController::class, 'edit'])
+                        ->name('acteurs.edit');
+        Route::get('/delete/{id}',[App\Http\Controllers\ActeursController::class, 'delete'])
+                        ->name('acteurs.delete');
+        Route::post('/action',[App\Http\Controllers\ActeursController::class, 'execAction'])
+                        ->name('acteurs.execution');
   });
 
   Route::group(["prefix" => "agendas"],function(){
@@ -166,6 +168,8 @@ Route::group(['middleware' => "auth"],function(){
                 ->name('galeries.edit');
         Route::get('/delete/{id}',[App\Http\Controllers\GaleriesController::class, 'delete'])
                 ->name('galeries.delete');
+        Route::post('/action',[App\Http\Controllers\GaleriesController::class, 'execAction'])
+                ->name('actualites.execution');        
     });
 
     Route::group(["prefix" => "donateurs"],function(){

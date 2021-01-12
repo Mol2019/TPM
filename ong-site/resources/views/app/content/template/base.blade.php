@@ -170,6 +170,7 @@
 
         function putDataInField(data){
             $("#form form input").each(function(){
+                if($(this).attr('name') !== "image")
                 $('#'+$(this).attr('name')).val(data[$(this).attr('name')]);
             });
             $("#form form select").each(function(){

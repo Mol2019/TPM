@@ -63,9 +63,19 @@
             @csrf
             <div id="form_result"></div>
             <div class="form-group">
-                <label for="title">Titre : </label>
-                <input name="title" id="title" class="form-control"/>
-                <span class="text-danger" id="title-error"> </span>
+                <label for="civilite"></label>
+                <select name="civilite" id="civilite" class="form-control">
+                    <option value="">Selectionnez votre sexe</option>
+                    <option value="homme">Homme</option>
+                    <option value="femme">Femme</option>
+
+                </select>
+                <span class="text-danger" id="civilite-error"> </span>
+            </div>
+            <div class="form-group">
+                <label for="nom">Nom : </label>
+                <input name="nom" id="nom" class="form-control"/>
+                <span class="text-danger" id="nom-error"> </span>
             </div>
              <div class="form-group">
                 <label for="content">Contenu : </label>

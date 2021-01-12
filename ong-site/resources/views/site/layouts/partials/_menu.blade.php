@@ -5,7 +5,7 @@
 
           <li class="drop-down"><a href="#">&Agrave; propos</a>
             <ul>
-              <li><a href="{{route('sections.details','Mot du président')}}p">Mot du Président</a></li>
+              <li><a href="{{route('sections.details','Mot du président')}}">Mot du Président</a></li>
               <!-- <li><a href="team.html">Team</a></li> -->
 
               <li class="drop-down"><a href="#">Présentation</a>

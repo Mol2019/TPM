@@ -25,4 +25,9 @@ class ActeursController extends BaseController
         $viewer = new SiteController('acteurs');
         return $viewer->viewLoader($data);
     }
+
+    public function execAction(Request $request)
+    {   
+        return $this->tg->execution($request);
+    }
 }
