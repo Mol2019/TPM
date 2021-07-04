@@ -23,7 +23,6 @@
                                         <th data-field="title" data-editable="true">Titre</th>
                                         <th data-field="content" data-editable="true">Contenu</th>
                                         <th data-field="image" data-editable="true">Image</th>
-                                        <th data-field="photo" data-editable="true">Photo</th>
                                         <th data-field="Nom" data-editable="true">Nom</th>
                                         <th data-field="poste" data-editable="true">Poste</th>
                                         <th data-field="action"></th>
@@ -35,7 +34,6 @@
                                             <td>{{ $menu->title }}</td>
                                             <td>{{ $menu->content }}</td>
                                             <td>{{ $menu->image }}</td>
-                                            <td>{{ $menu->photo }}</td>
                                             <td>{{ $menu->nom }}</td>
                                             <td>{{ $menu->poste }}</td>
                                             <td>
@@ -82,12 +80,6 @@
                 <input name="image" id="image" type="file" class="form-control"/>
                 <span class="text-danger" id="image-error"> </span>
             </div>
-            <div class="form-group">
-                <label for="photo">Photo : </label>
-                <input name="photo" id="photo" type="file" class="form-control"/>
-                <span class="text-danger" id="photo-error"> </span>
-            </div>    
-
             <div class="form-group">
                 <label for="nom">Nom : </label>
                 <input name="nom" id="nom" class="form-control"/>

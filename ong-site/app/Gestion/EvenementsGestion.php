@@ -10,7 +10,10 @@ class EvenementsGestion extends TreatmentGestion
   {
   $this->model = new Evenement;
     $this->rules = [
-      "nom" => "required|min:2",
+      "title" => "required|min:2",
+      "content" => "required",
+      "date_debut" => "required|date_format:Y-m-d|after_or_equal:today",
+      "date_end" => "required|date_format:Y-m-d|after_or_equal:date_debut",
     ];
   }
 

@@ -55,7 +55,7 @@ Route::get("/nos-communiques",[App\Http\Controllers\CommuniquesController::class
 Route::get("/nos-evenements",[App\Http\Controllers\EvenementsController::class,'liste'])->name('events');
 Route::get("/nos-jobs-news",[App\Http\Controllers\JobnewsController::class,'liste'])->name('jnews');
 Route::get("/dans-la-presse",[App\Http\Controllers\PublicationsController::class,'presse'])->name('presse');
-
+Route::get('/become-member',[App\Http\Controllers\MembresController::class,'formFecth'])->name('become.membre');
 
 
 Route::group(['middleware' => "auth"],function(){
@@ -155,6 +155,8 @@ Route::group(['middleware' => "auth"],function(){
                 ->name('programmes.edit');
       Route::get('/delete/{id}',[App\Http\Controllers\ProgrammesController::class, 'delete'])
                 ->name('programmes.delete');
+      Route::post('/action',[App\Http\Controllers\ProgrammesController::class, 'execAction'])
+                ->name('programmes.execution');           
   });
 
   Route::group(["prefix" => "galeries"],function(){
@@ -209,6 +211,8 @@ Route::group(['middleware' => "auth"],function(){
                   ->name('publicites.edit');
         Route::get('/delete/{id}',[App\Http\Controllers\PublicitesController::class, 'delete'])
                   ->name('publicites.delete');
+        Route::post('/action',[App\Http\Controllers\PublicitesController::class, 'execAction'])
+                  ->name('publicites.execution'); 
     });
 
     Route::group(["prefix" => "publications"],function(){
@@ -222,6 +226,8 @@ Route::group(['middleware' => "auth"],function(){
                   ->name('publications.edit');
         Route::get('/delete/{id}',[App\Http\Controllers\PublicationsController::class, 'delete'])
                   ->name('publications.delete');
+        Route::post('/action',[App\Http\Controllers\PublicationsController::class, 'execAction'])
+                  ->name('publications.execution');           
     });
 
     Route::group(["prefix" => "equipes"],function(){
@@ -235,6 +241,8 @@ Route::group(['middleware' => "auth"],function(){
                   ->name('equipes.edit');
         Route::get('/delete/{id}',[App\Http\Controllers\EquipesController::class, 'delete'])
                   ->name('equipes.delete');
+        Route::post('/action',[App\Http\Controllers\EquipesController::class, 'execAction'])
+                  ->name('equipes.execution');          
     });
 
     Route::group(["prefix" => "contrats"],function(){

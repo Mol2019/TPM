@@ -37,6 +37,11 @@
                                             <td>{{ $programme->slug }}</td>
                                             <td>{{ $programme->image }}</td>
                                             <td>
+                                                @if($programme->is_online)
+                                                        <button id="{{ $programme->id }}" name="online" class="action btn btn-warning" data-toggle="modal" data-target="#action">Mettre hors ligne</button>
+                                                @else
+                                                    <button id="{{ $programme->id }}" name="offline" class="action btn btn-success" data-toggle="modal" data-target="#action">Mettre en ligne</button>
+                                                @endif
                                                 <button id="{{ $programme->id }}" class="edit btn btn-info" data-toggle="modal" data-target="#form">Modifier</button>
                                                 <button id="{{ $programme->id }}" class="btn btn-danger delete" data-toggle="modal" data-target="#delete" href="#delete">Supprimer</button>
                                             </td>

@@ -13,7 +13,7 @@
                 <span class="d-flex align-items-center">&nbsp;Flash</span> 
               </div>
                 <marquee class="news-scroll" behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
-                      <a href="#"> {{$data->flashs[0]->content}} </a>   
+                      <a href="#"> {{$data->flashs->count() > 0 ? $data->flashs[0]->content : ""}} </a>   
                 </marquee>
           </div>
           </div>

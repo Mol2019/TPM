@@ -10,11 +10,12 @@ class CommuniquesGestion extends TreatmentGestion
   {
   $this->model = new Communique;
     $this->rules = [
-      "label" => "required|min:2",
-      "slug" => "required|min:2",
+      "title" => "required|min:2",
       "image" => "required|image",
       "content" => "required"
     ];
+    $reflection = new \ReflectionClass($this->model);
+    $this->name = $reflection->getShortName();
   }
 
 }

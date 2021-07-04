@@ -1,4 +1,4 @@
-@extends('app.content.template.base',["label" => "La publicite"])
+@extends('app.content.template.base',["title" => "Les publicités"])
 
 @section('app-content')
 <div class="data-table-area mg-b-15">
@@ -32,11 +32,17 @@
                                 <tbody>
                                     @foreach($data as $publicite)
                                         <tr>
-                                            <td>{{ $publicite->nom }}</td>
-                                            <td>{{ $publicite->access_key }}</td>
-                                            <td>{{ $publicite->access_key }}</td>
-                                            <td>{{ $publicite->access_key }}</td>
+                                            <td>{{ $publicite->title }}</td>
+                                            <td>{{ $publicite->content }}</td>
+                                            <td>{{ $publicite->slug }}</td>
+                                            <td>{{ $publicite->image }}</td>
+                                            <td>{{ $publicite->priority }}</td>
                                             <td>
+                                                @if($publicite->is_online)
+                                                    <button id="{{ $publicite->id }}" name="online" class="action btn btn-warning" data-toggle="modal" data-target="#action">Mettre hors ligne</button>
+                                                @else
+                                                    <button id="{{ $publicite->id }}" name="offline" class="action btn btn-success" data-toggle="modal" data-target="#action">Mettre en ligne</button>
+                                                @endif
                                                 <button id="{{ $publicite->id }}" class="edit btn btn-info" data-toggle="modal" data-target="#form">Modifier</button>
                                                 <button id="{{ $publicite->id }}" class="btn btn-danger delete" data-toggle="modal" data-target="#delete" href="#delete">Supprimer</button>
                                             </td>
@@ -55,16 +61,17 @@
 
 @section('form-modal')
     <form method="post" id="add-form">
+        @csrf
+
         <div class="modal-header flex-column text-center bg-primary">
             <h4 class="modal-label w-100">Ajouter une publicité</h4>
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         </div>
         <div class="modal-body">
-            @csrf
             <div id="form_result"></div>
             <div class="form-group">
-                <label for="label">Titre : </label>
-                <input name="label" id="label" class="form-control"/>
+                <label for="title">Titre : </label>
+                <input name="title" id="title" class="form-control"/>
                 <span class="text-danger" id="label-error"> </span>
             </div>
              <div class="form-group">
@@ -78,9 +85,7 @@
                 <span class="text-danger" id="image-error"> </span>
             </div>
              <div class="form-group">
-                <label for="slug">Slug : </label>
-                <input name="slug" type="slug" id="slug" class="form-control"/>
-                <span class="text-danger" id="slug-error"> </span>
+                <input name="slug" type="hidden" id="slug" class="form-control"/>
             </div>
             <input name="hidden_id" id="hidden_id" class="form-control" type="hidden"/>
         </div>

@@ -1,4 +1,4 @@
-@extends('app.content.template.base',["label" => "La publication"])
+@extends('app.content.template.base',["title" => "Le publications"])
 
 @section('app-content')
 <div class="data-table-area mg-b-15">
@@ -26,19 +26,48 @@
                                         <th data-field="content" data-editable="true">Contenu</th>
                                         <th data-field="slug" data-editable="true">Slug</th>
                                         <th data-field="image" data-editable="true">Image</th>
+                                        <th data-field="type" data-editable="true">Type</th>
                                         <th data-field="action"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($data as $publication)
                                         <tr>
-                                            <td>{{ $publication->nom }}</td>
-                                            <td>{{ $publication->access_key }}</td>
-                                            <td>{{ $publication->access_key }}</td>
-                                            <td>{{ $publication->access_key }}</td>
+                                            <td>{{ $publication->title }}</td>
+                                            <td>{{ $publication->content }}</td>
+                                            <td>{{ $publication->slug }}</td>
+                                            <td>{{ $publication->image }}</td>
                                             <td>
-                                                <button id="{{ $publication->id }}" class="edit btn btn-info" data-toggle="modal" data-target="#form">Modifier</button>
-                                                <button id="{{ $publication->id }}" class="btn btn-danger delete" data-toggle="modal" data-target="#delete" href="#delete">Supprimer</button>
+                                                @if($publication->is_press)
+                                                    Dans press
+                                                @elseif($publication->is_rapport)
+                                                    Est un rapport     
+                                                @else
+                                                    Normal
+                                                @endif
+                                            </td>
+
+                                            <td>
+                                                
+                                                @if($publication->is_rapport)
+                                                    <button id="{{ $publication->id }}" name="normal" class="action btn btn-success btn-sm" data-toggle="modal" data-target="#action">Mode normal</button>
+                                                    <button id="{{ $publication->id }}" name="inPress" class="action btn btn-success btn-sm" data-toggle="modal" data-target="#action">Marquer comme presse</button>
+                                                @elseif($publication->is_press)
+                                                    <button id="{{ $publication->id }}" name="report" class="action btn btn-success btn-sm" data-toggle="modal" data-target="#action">Marquer comme rapport</button>
+                                                    <button id="{{ $publication->id }}" name="normal" class="action btn btn-success btn-sm" data-toggle="modal" data-target="#action">Mode normal</button>
+                                                @else
+                                                    <button id="{{ $publication->id }}" name="report" class="action btn btn-success btn-sm" data-toggle="modal" data-target="#action">Marquer comme rapport</button>
+                                                    <button id="{{ $publication->id }}" name="inPress" class="action btn btn-success btn-sm" data-toggle="modal" data-target="#action">Marquer comme presse</button>
+                                                @endif
+
+
+                                                @if($publication->is_online)
+                                                    <button id="{{ $publication->id }}" name="online" class="action btn btn-warning btn-sm" data-toggle="modal" data-target="#action">Mettre hors ligne</button>
+                                                @else
+                                                    <button id="{{ $publication->id }}" name="offline" class="action btn btn-success btn-sm" data-toggle="modal" data-target="#action">Mettre en ligne</button>
+                                                @endif
+                                                <button id="{{ $publication->id }}" class="edit btn btn-info btn-sm" data-toggle="modal" data-target="#form">Modifier</button>
+                                                <button id="{{ $publication->id }}" class="btn btn-danger delete btn-sm" data-toggle="modal" data-target="#delete" href="#delete">Supprimer</button>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -63,9 +92,9 @@
             @csrf
             <div id="form_result"></div>
             <div class="form-group">
-                <label for="label">Titre : </label>
-                <input name="label" id="label" class="form-control"/>
-                <span class="text-danger" id="label-error"> </span>
+                <label for="title">Titre : </label>
+                <input name="title" id="label" class="form-control"/>
+                <span class="text-danger" id="title-error"> </span>
             </div>
              <div class="form-group">
                 <label for="content">Contenu : </label>
@@ -77,10 +106,8 @@
                 <input name="image" type="file" id="image" class="form-control"/>
                 <span class="text-danger" id="image-error"> </span>
             </div>
-             <div class="form-group">
-                <label for="slug">Slug : </label>
-                <input name="slug" type="slug" id="slug" class="form-control"/>
-                <span class="text-danger" id="slug-error"> </span>
+            <div class="form-group">
+                <input name="slug" type="hidden" id="slug" class="form-control"/>
             </div>
             <input name="hidden_id" id="hidden_id" class="form-control" type="hidden"/>
         </div>

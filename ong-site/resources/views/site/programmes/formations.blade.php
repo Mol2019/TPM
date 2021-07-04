@@ -22,7 +22,7 @@
 
               <div class="entry-meta">
                 <ul>
-                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="#">Actualités</a></li>
+                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="#">Formations</a></li>
                   <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="#"><time datetime="{{$formation->created_at}}">{{$formation->created_at}}</time></a></li>
                 </ul>
               </div>

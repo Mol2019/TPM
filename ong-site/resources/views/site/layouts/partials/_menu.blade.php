@@ -72,7 +72,7 @@
 
               <li class="drop-down"><a href="#">Participer</a>
                 <ul>
-                  <li><a href="#">Devenir membre</a></li>
+                  <li><a href="{{ route('become.membre') }}">Devenir membre</a></li>
                   <li><a href="#">Devenir bénévole</a></li>
                   <li><a href="#">Devenir volontaire</a></li>
                   <li><a href="#">Devenir bénéficiaire</a></li>

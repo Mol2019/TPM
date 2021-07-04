@@ -58,19 +58,15 @@
       </div>
 
       <div class="row no-gutters">
-        @foreach($data->donnees->chiffres as $chiffre)
-          
-        @endforeach
-        <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
-          <div class="count-box">
-            <i class="icofont-simple-smile"></i>
-            <span data-toggle="counter-up">{{ $chiffre->valeur }}</span>
-            <p><strong>{{ $chiffre->libelle }}</strong> {{ $chiffre->description }}</p>
-          </div>
-        </div>
-
-        
-
+          @foreach($data->donnees->chiffres as $chiffre)
+            <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+              <div class="count-box">
+                <i class="icofont-simple-smile"></i>
+                <span data-toggle="counter-up">{{ $chiffre->valeur }}</span>
+                <p><strong>{{ $chiffre->libelle }}</strong> {{ $chiffre->description }}</p>
+              </div>
+            </div>
+          @endforeach
       </div>
 
     </div>
@@ -220,7 +216,7 @@
       <div class="owl-carousel clients-carousel">
         @foreach ($data->donnees->partenaires as $partenaire)
           @if($partenaire->is_online)
-            <img src="{{asset($partenaire->image)}}" alt="">
+            <img src="{{asset($partenaire->logo)}}" alt="">
           @endif  
         @endforeach
       </div>

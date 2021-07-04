@@ -16,6 +16,8 @@ class BaseGestion implements BaseGestionInterface
   public function __construct($model)
   {
     $this->model = $model;
+    $reflection = new \ReflectionClass($this->model);
+    $this->name = $reflection->getShortName();
   }
 
   /**

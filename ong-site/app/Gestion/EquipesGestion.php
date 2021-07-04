@@ -11,6 +11,10 @@ class EquipesGestion extends TreatmentGestion
   $this->model = new Equipe;
     $this->rules = [
       "nom" => "required|min:2",
+      "prenoms" => "required|min:2",
+      "civilite" => "required",
+      "fonction" => "required",
+      "portrait" => "required"
     ];
   }
 

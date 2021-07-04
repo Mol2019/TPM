@@ -10,7 +10,7 @@
             @if($equipe->is_online)
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                     <div class="member">
-                        <img src="{{ asset($equipe->photo)}}" alt="">
+                        <img src="{{ asset($equipe->photo ?? 'https://p7.hiclipart.com/preview/247/564/869/computer-icons-user-profile-clip-art-user-avatar-thumbnail.jpg' )}}" alt="">
                         <h4>{{ $equipe->nom}} {{ $equipe->prenoms}}</h4>
                         <span>{{ $equipe->fonction}}</span>
                         <p>

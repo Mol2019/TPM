@@ -74,4 +74,9 @@ class BaseController extends Controller
       return response()->json(["success" => $data["result"],'message' => "Supprimé avec succès"],201);
     }
 
+    public function execAction(Request $request)
+    {
+      return $this->tg->execution($request);
+    }
+
 }

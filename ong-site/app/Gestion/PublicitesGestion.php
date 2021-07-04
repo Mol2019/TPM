@@ -10,9 +10,7 @@ class PublicitesGestion extends TreatmentGestion
   {
   $this->model = new Publicite;
     $this->rules = [
-      "label" => "required|min:2",
-      "slug" => "required|min:2",
-      "image" => "required|image",
+      "title" => "required|min:2",
       "content" => "required"
     ];
   }

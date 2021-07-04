@@ -16,6 +16,8 @@ class GaleriesGestion extends TreatmentGestion
       "image" => "required|image",
       "content" => "required"
     ];
+    $reflection = new \ReflectionClass($this->model);
+    $this->name = $reflection->getShortName();
   }
 
   public function create($data,$file=NULL)

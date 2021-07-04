@@ -26,4 +26,5 @@ class PartenairesController extends BaseController
         $viewer = new SiteController('partenaires');
         return $viewer->viewLoader($data);
     }
+
 }

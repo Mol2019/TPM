@@ -54,6 +54,7 @@
        <a href="{{ route('programmes.index') }}" class="dropdown-item"> Programmes </a>
        <a href="{{ route('communiques.index') }}" class="dropdown-item"> communiqués </a>
        <a href="{{ route('jobnews.index') }}" class="dropdown-item"> Job news </a>
+       <a href="{{ route('evenements.index') }}" class="dropdown-item"> Evènemment </a>
     </div>
 </li>
 

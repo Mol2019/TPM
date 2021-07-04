@@ -28,9 +28,8 @@ class TreatmentGestion extends TransactionGestion
         if($file->isValid()) :
           File::makeDirectory("assets/site/images/$this->name", $mode = 0777, true, true);
           $extension = $file->getClientOriginalExtension();
-          $data['image'] = "assets/site/images/$this->name/$data[title].".$extension;
-          if($data['logo'])
-            $data['logo'] = "assets/site/images/$this->name/$data[nom].".$extension;  
+          $data['image'] = str_replace(" ","_","assets/site/images/$this->name/$data[title].").$extension;
+         
           $file->move("assets/site/images/$this->name", $data['image']);
         endif;
       }
@@ -66,6 +65,7 @@ class TreatmentGestion extends TransactionGestion
   public function update($data,$id,$file=NULL)
   {
     $errors = $this->checkRules($this->rules,$data);
+    $file = $data["image"] ?? NULL; 
     if($errors->count() > 0 ){
       return ["result" => false,"data" => $errors];
     }else{
@@ -74,9 +74,7 @@ class TreatmentGestion extends TransactionGestion
         if($file->isValid()) :
           File::makeDirectory("assets/site/images/$this->name", $mode = 0777, true, true);
           $extension = $file->getClientOriginalExtension();
-          $data['image'] = "assets/site/images/$this->name/$data[title].".$extension;
-          if($data['logo'])
-            $data['logo'] = "assets/site/images/$this->name/$data[nom].".$extension;
+          $data['image'] = str_replace(" ","_","assets/site/images/$this->name/$data[title].").$extension;
           $file->move("assets/site/images/$this->name", $data['image']);
         endif;
       }
@@ -107,4 +105,18 @@ class TreatmentGestion extends TransactionGestion
        endif;
        return $errors;
      }
+
+     public function execution($data)
+    {
+      $model = $this->model::find($data['id']);
+      if($model->is_online) :
+        $model->is_online = false;  
+      else : 
+        $model->is_online = true;
+      endif;
+      $model->save();
+      $message = $data['name']." mis à jour avec succès";
+      return response()->json(["success" => true,"message" => $message],201);
+
+    }
 }

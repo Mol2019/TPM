@@ -25,7 +25,7 @@
                                         <th data-field="content" data-editable="true">Contenu</th>
                                         <th data-field="slug" data-editable="true">Slug</th>
                                         <th data-field="image" data-editable="true">Image</th>
-                                        <th data-field="image" data-editable="true">Est flash ? </th>
+                                        <th data-field="flash" data-editable="true">Est flash ? </th>
 
                                         <th data-field="action"></th>
                                     </tr>

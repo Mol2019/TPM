@@ -170,8 +170,13 @@
 
         function putDataInField(data){
             $("#form form input").each(function(){
-                if($(this).attr('name') !== "image")
-                $('#'+$(this).attr('name')).val(data[$(this).attr('name')]);
+                if($(this).attr('name') == "image"){
+                    
+                }else if($(this).attr('name') == "logo"){
+
+                }else{
+                    $('#'+$(this).attr('name')).val(data[$(this).attr('name')]);
+                }
             });
             $("#form form select").each(function(){
                 $('#'+$(this).attr('name')).val(data[$(this).attr('name')]);
@@ -220,6 +225,12 @@
 
         function failTreatment(errors){
             $("#form form input").each(function(){
+                $('#'+$(this).attr('name')+"-error").text(errors[$(this).attr('name')]);
+            });
+            $("#form form select").each(function(){
+                $('#'+$(this).attr('name')+"-error").text(errors[$(this).attr('name')]);
+            });
+            $("#form form textarea").each(function(){
                 $('#'+$(this).attr('name')+"-error").text(errors[$(this).attr('name')]);
             });
          }
@@ -278,7 +289,6 @@
             formData.append('action', action);
             formData.append('id', id);
 
-            console.log("/"+actionData.name+"/action")
             $.ajax({
                 url : "/"+actionData.name+"/action",
                 type : "POST",

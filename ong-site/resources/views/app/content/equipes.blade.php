@@ -22,21 +22,30 @@
                             <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar">
                                 <thead>
                                     <tr>
-                                        <th data-field="tite" data-editable="true">Titre</th>
-                                        <th data-field="content" data-editable="true">Contenu</th>
-                                        <th data-field="slug" data-editable="true">Slug</th>
-                                        <th data-field="image" data-editable="true">Image</th>
+                                        <th data-field="civilite" data-editable="true">Civilité</th>
+                                        <th data-field="nom" data-editable="true">Nom</th>
+                                        <th data-field="prenoms" data-editable="true">Prénoms</th>
+                                        <th data-field="fonction" data-editable="true">Fonction</th>
+                                        <th data-field="portrait" data-editable="true">Portrait</th>
+                                        <th data-field="image" data-editable="true">Photo</th>
                                         <th data-field="action"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($data as $membre)
                                         <tr>
+                                            <td>{{ $membre->civilite }}</td>
                                             <td>{{ $membre->nom }}</td>
-                                            <td>{{ $membre->access_key }}</td>
-                                            <td>{{ $membre->access_key }}</td>
-                                            <td>{{ $membre->access_key }}</td>
+                                            <td>{{ $membre->prenoms}}</td>
+                                            <td>{{ $membre->fonction}}</td>
+                                            <td>{{ $membre->portrait}}</td>
+                                            <td>{{ $membre->photo}}</td>
                                             <td>
+                                                @if($membre->is_online)
+                                                    <button id="{{ $membre->id }}" name="online" class="action btn btn-warning" data-toggle="modal" data-target="#action">Mettre hors ligne</button>
+                                                @else
+                                                    <button id="{{ $membre->id }}" name="offline" class="action btn btn-success" data-toggle="modal" data-target="#action">Mettre en ligne</button>
+                                                @endif
                                                 <button id="{{ $membre->id }}" class="edit btn btn-info" data-toggle="modal" data-target="#form">Modifier</button>
                                                 <button id="{{ $membre->id }}" class="btn btn-danger delete" data-toggle="modal" data-target="#delete" href="#delete">Supprimer</button>
                                             </td>
@@ -63,7 +72,7 @@
             @csrf
             <div id="form_result"></div>
             <div class="form-group">
-                <label for="civilite"></label>
+                <label for="civilite">Votre sexe</label>
                 <select name="civilite" id="civilite" class="form-control">
                     <option value="">Selectionnez votre sexe</option>
                     <option value="homme">Homme</option>
@@ -77,10 +86,15 @@
                 <input name="nom" id="nom" class="form-control"/>
                 <span class="text-danger" id="nom-error"> </span>
             </div>
-             <div class="form-group">
-                <label for="content">Contenu : </label>
-                <input name="content" id="content" class="form-control"/>
-                <span class="text-danger" id="content-error"> </span>
+            <div class="form-group">
+                <label for="prenoms">Prénoms : </label>
+                <input name="prenoms" id="prenoms" class="form-control"/>
+                <span class="text-danger" id="prenoms-error"> </span>
+            </div>
+            <div class="form-group">
+                <label for="fonction">Fonction : </label>
+                <input name="fonction" id="fonction" class="form-control"/>
+                <span class="text-danger" id="fonction-error"> </span>
             </div>
              <div class="form-group">
                 <label for="image">Image : </label>
@@ -88,9 +102,9 @@
                 <span class="text-danger" id="image-error"> </span>
             </div>
              <div class="form-group">
-                <label for="slug">Slug : </label>
-                <input name="slug" type="slug" id="slug" class="form-control"/>
-                <span class="text-danger" id="slug-error"> </span>
+                <label for="protrait">Portrait</label>
+                <textarea class="form-control" name="portrait" id="portrait" cols="30" rows="10"></textarea>
+                <span class="text-danger" id="portrait-error"> </span>
             </div>
             <input name="hidden_id" id="hidden_id" class="form-control" type="hidden"/>
         </div>

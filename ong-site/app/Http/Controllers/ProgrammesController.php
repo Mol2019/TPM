@@ -55,7 +55,6 @@ class ProgrammesController extends BaseController
     {
         $projetsView = new SiteController('publications.points');
         $data = new Collection;
-        //$data->formations = $this->tg->getByParam('is_project',false);
         return $projetsView->viewLoader($data);
     }
 }

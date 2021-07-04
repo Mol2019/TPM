@@ -14,4 +14,9 @@ class PublicitesController extends BaseController
         $this->tg = new PublicitesGestion;
         $this->name = "publicites";
     }
+
+    public function create(Request $request)
+    {
+        dd($request->all());
+    }
 }

@@ -8,13 +8,15 @@ class SlidersGestion extends TreatmentGestion
 {
   public function __construct()
   {
-  $this->model = new Slider;
+    $this->model = new Slider;
     $this->rules = [
       "title" => "required|min:2",
       "content" => "required",
       "slug" => "required",
       "image" => "required|image"
     ];
+    $reflection = new \ReflectionClass($this->model);
+    $this->name = $reflection->getShortName();
   }
 
   public function execution($data)
